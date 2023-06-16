@@ -12,7 +12,7 @@ int main(void)
 	char alphabets[] = "abcdefghijklmnopqrstuvwxyz";
 	int i;
 
-	for (i = 1; i < 26; i++)
+	for (i = 0; i < 26; i++)
 	{
 		putchar(alphabets[i]);
 	}
