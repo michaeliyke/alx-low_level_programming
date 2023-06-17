@@ -27,7 +27,7 @@ int main(void)
 						putchar(y + '0');
 						putchar(z + '0');
 
-						if (y < 8)
+						if (y < 9)
 						{
 							putchar(',');
 							putchar(' ');
