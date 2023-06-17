@@ -19,19 +19,16 @@ int main(void)
 		{
 			for (z = 2; z <= 9; z++)
 			{
-				if (x < y)
+				if ((x < y) && (y < z))
 				{
-					if (y < z)
-					{
-						putchar(x + '0');
-						putchar(y + '0');
-						putchar(z + '0');
+					putchar(x + '0');
+					putchar(y + '0');
+					putchar(z + '0');
 
-						if (x < 7)
-						{
-							putchar(',');
-							putchar(' ');
-						}
+					if (x < 7)
+					{
+						putchar(',');
+						putchar(' ');
 					}
 				}
 			}
