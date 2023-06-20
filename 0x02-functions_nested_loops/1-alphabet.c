@@ -3,6 +3,8 @@
 #include <unistd.h>
 #include "main.h"
 
+int _putchar(char c);
+
 /**
 *print_alphabet - prints alphabets in lower case
 *
@@ -15,11 +17,10 @@ void print_alphabet(void)
 
 	for (i = 0; i < 26; i++)
 	{
-		_putchar(i, "0");
+		_putchar(chars[i] + '0');
 	}
-	_putchar("\n", "");
+	_putchar('\n');
 
-	return (0);
 }
 
 
