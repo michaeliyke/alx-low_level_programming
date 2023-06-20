@@ -13,5 +13,5 @@ int main(void)
 	char str[] = "_putchar\n";
 
 	write(1, str, strlen(str));
-	return (1);
+	return (0);
 }
