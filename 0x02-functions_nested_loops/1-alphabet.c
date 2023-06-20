@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
-#include "main.h"
 
 int _putchar(char c);
-void print_alphabet(void);
 
 /**
  *print_alphabet - prints alphabets in lower case
@@ -30,8 +28,6 @@ void print_alphabet(void)
  */
 int main(void)
 {
-	char str[] = "_putchar\n";
 
-	write(1, str, strlen(str));
 	return (0);
 }
