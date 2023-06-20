@@ -4,12 +4,13 @@
 #include "main.h"
 
 int _putchar(char c);
+void print_alphabet(void);
 
 /**
-*print_alphabet - prints alphabets in lower case
-*
-*Return: does not return a value
-*/
+ *print_alphabet - prints alphabets in lower case
+ *
+ *Return: does not return a value
+ */
 void print_alphabet(void)
 {
 	char chars[] = "abcdefghijklmnopqrstuvwxyz";
@@ -20,9 +21,7 @@ void print_alphabet(void)
 		_putchar(chars[i] + '0');
 	}
 	_putchar('\n');
-
 }
-
 
 /**
  * main - prints stuff
