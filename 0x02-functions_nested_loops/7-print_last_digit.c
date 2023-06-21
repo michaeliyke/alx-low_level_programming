@@ -1,14 +1,14 @@
+#include "main.h"
+
 /**
- * print_last_digit - prints the last digit of a number.
+ * print_last_digit - prints the last digit of a number. 8044
  * @n: the number whose last digit is printed
  *
  * Return: the value of the last digit
  */
 int print_last_digit(int n)
 {
-	if (n < 0)
-	{
-		return (-n % 10);
-	}
-	return (n % 10);
+	int res = (n % 10) * -1;
+	_putchar(res);
+	return res;
 }
