@@ -1,4 +1,5 @@
 #include "main.h"
+#include "stdio.h"
 
 void print_ints(int);
 
@@ -16,10 +17,10 @@ void jack_bauer(void)
 		for (j = 0; j < 60; j++)
 		{
 			print_ints(i);
-			/* _putchar(':' + '0');*/
+			/* putchar(':' + '0');*/
 			/* print_ints(j);*/
 		}
-		_putchar('\n');
+		putchar('\n');
 	}
 }
 
@@ -36,8 +37,8 @@ void print_ints(int i)
 
 	if (i < 10)
 	{
-		_putchar('0');
-		_putchar(i + '0');
+		putchar('0');
+		putchar(i + '0');
 	}
 	else
 	{
@@ -45,7 +46,7 @@ void print_ints(int i)
 		flt = i / 10;
 		first = (int)flt;
 
-		_putchar(first + '0');
-		_putchar(last + '0');
+		putchar(first + '0');
+		putchar(last + '0');
 	}
 }
