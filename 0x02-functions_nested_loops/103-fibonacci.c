@@ -12,9 +12,9 @@ int main(void)
 	unsigned long even_total = 0;
 	unsigned long fib_val = 0;
 
-	while (4000000 > fib_val)
+	while (fib_val < 4000000)
 	{
-		if (i % 2 == 0)
+		if (fib_val % 2 == 0)
 		{
 			even_total += fib_val;
 		}
