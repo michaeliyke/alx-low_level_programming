@@ -25,6 +25,11 @@ void more_numbers(void)
 	}
 }
 
+/**
+ * print_char - alias to _putchar()
+ *
+ * Return: void
+ */
 void print_char(char c)
 {
 	_putchar(c);
