@@ -11,12 +11,14 @@ void print_to_98(int n)
 {
 	while (1)
 	{
-		printf("%d, ", n);
 		if (n == 98)
 		{
-			_putchar('\n');
+			puts("98\n");
 			break;
 		}
+
+		printf("%d, ", n);
+
 		if (n > 98)
 			n = n - 1;
 		if (n < 98)
