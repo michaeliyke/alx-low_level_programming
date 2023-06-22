@@ -12,9 +12,9 @@ int main(void)
 
 	for (i = 1; i < 98; i++)
 	{
-		printf("%llu, ", fib2(i));
+		printf("%lu, ", (int)fib2(i));
 	}
-	printf("%llu\n", fib2(98));
+	printf("%lu\n", (int)fib2(98));
 	return (0);
 }
 
@@ -24,10 +24,10 @@ int main(void)
  *
  * Return: the computed fibonacci value of the number
  */
-long long unsigned fib2(int num)
+long int fib2(int num)
 {
-	long long unsigned a = 0;
-	long long unsigned b = 1, c;
+	long int a = 0;
+	long int b = 1, c;
 
 	while (num-- > 0)
 	{
