@@ -9,10 +9,12 @@
 int main(void)
 {
 	int i;
-	for (i = 1; i < 51; i++)
+
+	for (i = 1; i < 50; i++)
 	{
 		printf("%lu, ", fib(i));
 	}
+	printf("%lu", fib(50));
 	return (0);
 }
 
