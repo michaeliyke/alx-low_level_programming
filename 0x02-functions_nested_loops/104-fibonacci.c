@@ -18,6 +18,9 @@ int main(void)
 	return (0);
 }
 
+/* 218922995834555169026 */
+/* 16008811023750101250 */
+
 /**
  * fib2 - compute the fibonacci of a given number
  * @num: the number whose fibonacci is computed
