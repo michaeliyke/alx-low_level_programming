@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+/**
+ * main - sum of all profucts of 3 or 5 between 0 and 1024
+ *
+ * Return: void
+ */
 int main(void)
 {
 	int count, total = 0;
@@ -11,4 +16,6 @@ int main(void)
 	}
 
 	printf("%d\n", total);
+
+	return (0);
 }
