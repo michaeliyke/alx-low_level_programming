@@ -14,7 +14,7 @@ int main(void)
 	{
 		printf("%lu, ", fib(i));
 	}
-	printf("%lu", fib(50));
+	printf("%lu ", fib(50));
 	return (0);
 }
 
