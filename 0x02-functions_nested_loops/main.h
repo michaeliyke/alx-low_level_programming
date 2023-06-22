@@ -17,4 +17,5 @@ void comma_n_space(int);
 void print_3_digits(int);
 void print_2_digits(int);
 unsigned long fib(int);
+long long unsigned fib2(int);
 #endif
