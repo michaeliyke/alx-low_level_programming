@@ -16,4 +16,5 @@ void print_times_table(int n);
 void comma_n_space(int);
 void print_3_digits(int);
 void print_2_digits(int);
+unsigned long fib(int);
 #endif
