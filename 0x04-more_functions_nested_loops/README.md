@@ -11,4 +11,3 @@ The output of the below kinds of programs is generally asked at many places.
 
 Uninifshed
 five
-six
