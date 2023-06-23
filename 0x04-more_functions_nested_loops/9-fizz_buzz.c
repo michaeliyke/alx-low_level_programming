@@ -11,17 +11,17 @@ int main(void)
 
 	while (++index < 101)
 	{
-		if (index % 3 == 0)
+		if (index % 15 == 0)
 		{
-			printf("Fizz ");
+			printf("FizzBuzz ");
 		}
 		else if (index % 5 == 0)
 		{
 			printf("Buzz ");
 		}
-		else if (index % 15 == 0)
+		else if (index % 3 == 0)
 		{
-			printf("FizzBuzz ");
+			printf("Fizz ");
 		}
 		else
 		{
