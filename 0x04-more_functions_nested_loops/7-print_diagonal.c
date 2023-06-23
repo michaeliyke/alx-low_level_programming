@@ -10,6 +10,7 @@ void print_diagonal(int n)
 {
 	int filler = 0;
 	int spaces = 0;
+
 	while (n-- > 0)
 	{
 		while (spaces-- > 0)
