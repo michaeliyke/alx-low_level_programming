@@ -21,4 +21,8 @@ void print_diagonal(int n)
 		filler += 1;
 		spaces = filler;
 	}
+	if (filler == 0)
+	{
+		_putchar('\n');
+	}
 }
