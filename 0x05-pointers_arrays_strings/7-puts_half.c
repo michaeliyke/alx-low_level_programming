@@ -5,7 +5,6 @@ int len_str(char *s);
  * puts_half - prints half of a string
  * @str: the string to print
  *
- * @Return: void
  */
 void puts_half(char *str)
 {
@@ -37,5 +36,5 @@ int len_str(char *s)
 	{
 		i++;
 	}
-	return (i);
+	return (i - 1);
 }
