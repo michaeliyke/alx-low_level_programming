@@ -13,7 +13,7 @@ int len_str(char *s);
 void print_array(int *a, int n)
 {
 	int i;
-	int l = len_str(a);
+	int l = len_str(*a);
 
 	if (l != n)
 		n = l;
