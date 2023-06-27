@@ -16,10 +16,10 @@ char *_strcpy(char *dest, char *src)
 		*dest++ = *src++;
 		i--;
 	}
-	while (i > 0)
+
+	if (i > 0)
 	{
 		*dest++ = '\0';
-		i--;
 	}
 	return ptr;
 }
