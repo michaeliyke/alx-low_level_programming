@@ -6,7 +6,7 @@ char *cpy(char *dest, char *src);
 
 /**
  * rev_string -  reverses a string.
- * @s: string to reverse
+ * @a: string to reverse
  *
  * Return: void
  */
@@ -16,9 +16,10 @@ void rev_string(char *a)
 	char temp;
 
 	while (*a != '\0')
+	{
 		a++;
+	}
 	a--;
-
 	while (a > b)
 	{
 		temp = *a;
@@ -50,9 +51,17 @@ char *cpy(char *dest, char *src)
 	return (ptr);
 }
 
+/**
+ * strcpy - copy a string to from src to dest
+ * @src: the source string
+ * @dest: the destination string
+ *
+ * @Return: char pointer
+ */
 char *strncpy(char *dest, const char *src, size_t n)
 {
 	char *ptr = dest;
+
 	while (n > 0 && *src != '\0')
 	{
 		*dest++ = *src++;
@@ -63,7 +72,7 @@ char *strncpy(char *dest, const char *src, size_t n)
 		*dest++ = '\0';
 		n--;
 	}
-	return ptr;
+	return (ptr);
 }
 
 /**
