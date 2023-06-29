@@ -15,7 +15,7 @@ char *_strncpy(char *dest, char *src, int n)
 
 	if (!(dest) || !(src) || n < 1)
 	{
-		return dest;
+		return (dest);
 	}
 
 	while (n > 0)
