@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * _strncoat -  concatenates two strings limited by n
+ * _strncat -  concatenates two strings limited by n
  * @dest: string  to append to
  * @src: string that will be appended to dest
  * @n: number of strings to append to dest from src
@@ -19,7 +19,7 @@ char *_strncat(char *dest, char *src, int n)
 		x++;
 	}
 	temp = (dest + x);
-	while (src < (src + n))
+	while (*src != '\0' && n > 0)
 	{
 		*temp = *src;
 		temp++;
