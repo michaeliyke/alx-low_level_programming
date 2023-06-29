@@ -57,7 +57,7 @@ char *cpy(char *dest, char *src)
  * @dest: the destination string
  * @n: size of source or size of string that should be copied
  *
- * @Return: char pointer
+ * Return: char pointer
  */
 char *strncpy(char *dest, const char *src, size_t n)
 {
