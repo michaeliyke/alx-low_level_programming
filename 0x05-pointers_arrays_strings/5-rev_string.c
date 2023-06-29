@@ -31,7 +31,7 @@ void rev_string(char *a)
 }
 
 /**
- * _strcpy - copies *src, including the \0 char,to dest
+ * cpy - copies *src, including the \0 char,to dest
  * @dest: the destination of copy operation
  * @src: the source of copy operation
  *
@@ -52,9 +52,10 @@ char *cpy(char *dest, char *src)
 }
 
 /**
- * strcpy - copy a string to from src to dest
+ * strncpy - copy a string to from src to dest
  * @src: the source string
  * @dest: the destination string
+ * @n: size of source or size of string that should be copied
  *
  * @Return: char pointer
  */
