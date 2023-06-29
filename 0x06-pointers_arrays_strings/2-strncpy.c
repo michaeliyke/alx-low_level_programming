@@ -20,10 +20,17 @@ char *_strncpy(char *dest, char *src, int n)
 
 	while (n > 0)
 	{
-		t = *src ? *src : '\0';
+		if (*src)
+		{
+			t = *src;
+			src++;
+		}
+		else
+		{
+			t = '\0';
+		}
 		*d = t;
 		d++;
-		src++;
 		n--;
 	}
 	return dest;
