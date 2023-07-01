@@ -28,7 +28,7 @@ int _strcmp(char *s1, char *s2)
 		if (!(m2))
 		{
 			if (is_substr)
-				return (size1 - size2); // s2 is shorter
+				return (size1 - size2); /* s2 is shorter */
 			break;
 		}
 		if (m1 == m2)
@@ -45,19 +45,12 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
- * check_nulls - checks for null values
- * @s1 - string one
- * @s2 - string two
- *
- * Return
- */
-
-/**
- * len - get the length of a string
+ * len - compute and return the length of a string.
+ * The number is never negative.
  * @s: the string
  *
  * Return: int length of the string
- */
+*/
 int len(char *s)
 {
 	int index = 0;
