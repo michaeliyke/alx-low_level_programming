@@ -45,8 +45,22 @@ char *cap_string(char *s)
  */
 int is_sep(char c)
 {
-	// int separators[] = {9, 10, 13, 32, 34, 40, 41, 44, 46, 58, 59, 63, 123, 125};
-	char separators[] = {'\t', '\n', '\r', ' ', '"', '(', ')', ',', '.', ':', ';', '?', '{', '}'};
+	char separators[] = {
+	    '\t',
+	    '\n',
+	    '\r',
+	    ' ',
+	    '"',
+	    '(',
+	    ')',
+	    ',',
+	    '.',
+	    ':',
+	    ';',
+	    '?',
+	    '{',
+	    '}',
+	};
 	int length = sizeof(separators) / sizeof(char);
 
 	while (--length >= 0)
