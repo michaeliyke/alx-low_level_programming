@@ -51,7 +51,7 @@ int _strcmp(char *s1, char *s2)
 		}
 		if (m1 != m2)
 		{
-			return (_putchar(m1) - _putchar(m2));
+			return (m1 - m2);
 		}
 		index++;
 	}
@@ -79,6 +79,7 @@ int len(char *s)
 	while (*s != '\0')
 	{
 		index++;
+		s++;
 	}
 	return (index);
 }
