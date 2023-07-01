@@ -20,9 +20,11 @@ char *leet(char *s)
 	while (*p != '\0')
 	{
 		int length = 5;
+
 		while (--length >= 0)
 		{
 			char *x = ab[length];
+
 			if (*p == x[0] || *p == x[1])
 			{
 				*p = x[2];
