@@ -13,7 +13,7 @@ char *cap_string(char *s)
 	char *t = s;
 	int count = 0;
 
-	// No need to attempt to convert first one
+	/* No need to attempt to convert first one */
 	while (*t != '\0')
 	{
 		if (is_sep(*t))
