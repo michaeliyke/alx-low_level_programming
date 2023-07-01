@@ -14,5 +14,9 @@ int main(void)
 	printf("%d\n", _strcmp(s1, s2));
 	printf("%d\n", _strcmp(s2, s1));
 	printf("%d\n", _strcmp(s1, s1));
+	printf("%d\n", _strcmp(s1, "HelloWorld!"));
+	printf("%d\n", _strcmp("HelloWorld!", s1));
+	printf("%d\n", _strcmp(s1, ""));
+	printf("%d\n", _strcmp("", s1));
 	return (0);
 }

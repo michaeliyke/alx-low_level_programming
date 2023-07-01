@@ -1,7 +1,5 @@
 #include "main.h"
 
-int len(char *s);
-
 /**
  * _strcmp - compares two strings
  * @s1: First string
@@ -11,23 +9,11 @@ int len(char *s);
  */
 int _strcmp(char *s1, char *s2)
 {
-	int index = 0;
-	int is_substr = 0;
-	int size1 = len(s1);
-	int size2 = len(s2);
+	int index = 0, is_substr = 0, size1 = len(s1), size2 = len(s2);
 	char m1, m2;
 
-	/* check nulls */
-	if (!(s1) && !(s2))
-		return (0);
-
-	if (!(s1))
-		return 0 - (_putchar(s2[0]));
-
-	if (!(s2))
-		return (_putchar(s1[0]));
-
-	/* check for substring */
+	if ((size1 == 0) || (size2 == 0))
+		return (size1 - size2); /* check nulls */
 	while (1)
 	{
 		m1 = s1[index];
