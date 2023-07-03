@@ -13,7 +13,7 @@ char *_strchr(char *sp, char c)
 
 	if (!(*s))
 		return (NULL);
-	for (; *s != '\0'; ++s)
+	for (; *s != '\0'; s++)
 	{
 		if (*s == c)
 			break;
