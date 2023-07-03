@@ -11,8 +11,6 @@ char *_strchr(char *sp, char c)
 {
 	char *s = sp;
 
-	if (!(*s))
-		return (NULL);
 	for (; *s != '\0'; ++s)
 	{
 		if (*s == c)
