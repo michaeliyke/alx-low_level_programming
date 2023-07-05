@@ -16,7 +16,7 @@ void _print_rev_recursion(char *s)
  * do_print - prints a string in reverse
  * @s: the input string
  *
- * Return: void
+ * Return: void means no return value
  */
 void do_print(char *s)
 {
