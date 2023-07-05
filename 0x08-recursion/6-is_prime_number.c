@@ -27,5 +27,5 @@ int is_prime(int num, int tem)
 	else if (num % tem == 0)
 		return (0);
 	else
-		return is_prime(num, ++tem);
+		return (is_prime(num, ++tem));
 }
