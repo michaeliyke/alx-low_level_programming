@@ -9,7 +9,10 @@
 void _print_rev_recursion(char *s)
 {
 	do_print(s);
-	_putchar('\n');
+	if (*s)
+	{
+		_putchar('\n');
+	}
 }
 
 /**
