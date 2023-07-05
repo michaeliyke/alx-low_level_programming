@@ -24,5 +24,5 @@ int sq_root(int n, int y)
 		return (y);
 	if (y == n || n < 0)
 		return (-1);
-	return sq_root(n, ++y);
+	return (sq_root(n, ++y));
 }
