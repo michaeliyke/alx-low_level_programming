@@ -8,18 +8,21 @@
  */
 void _print_rev_recursion(char *s)
 {
-	if (*s == '\0')
-	{
-		if (*(--s))
-		{
-			_putchar('\n');
-		}
-		return;
-	}
-	_print_rev_recursion(++s);
+	do_print(s);
+	_putchar('\n');
+}
 
-	if (*s != '\n')
+/**
+ * do_print - prints a string in reverse
+ * @s: the input string
+ *
+ * Return: void
+ */
+void do_print(char *s)
+{
+	if (*s != '\0')
 	{
+		do_print(++s);
 		_putchar(*s);
 	}
 }
