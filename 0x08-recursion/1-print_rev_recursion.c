@@ -23,9 +23,6 @@ void do_print(char *s)
 	if (*s != '\0')
 	{
 		do_print(++s);
-	}
-	else
-	{
 		_putchar(*s);
 	}
 }
