@@ -14,5 +14,5 @@ int wildcmp(char *s1, char *s2);
 int is_palindrome(char *s);
 int is_palindrome_(char *s, char *start, char *end);
 void lower(char *c);
-int strleng(char *s);
+int strleng(char *s, int i);
 int skip(char c);
