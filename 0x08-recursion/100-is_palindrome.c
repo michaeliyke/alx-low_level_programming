@@ -49,7 +49,7 @@ int is_palindrome_(char *s, char *start, char *end)
  */
 int strleng(char *s, int i)
 {
-	return (*s != '\0') ? (strleng(++s, ++i)) : (i);
+	return ((*s != '\0') ? (strleng(++s, ++i)) : (i));
 }
 
 /**
