@@ -10,6 +10,7 @@ int is_palindrome(char *s)
 {
 	char *start = s;
 	char *end = s + strleng(s, 0) - 1;
+
 	return (is_palindrome_(s, start, end));
 }
 
@@ -40,14 +41,15 @@ int is_palindrome_(char *s, char *start, char *end)
 }
 
 /**
- * strlen - returns the length of the string
+ * strleng - returns the length of the string
  * @s: input string
+ * @i: base counter
  *
  * Return: length og the string
  */
 int strleng(char *s, int i)
 {
-	return (*s != '\0') ? strleng(++s, ++i) : (i);
+	return (*s != '\0') ? (strleng(++s, ++i)) : (i);
 }
 
 /**
