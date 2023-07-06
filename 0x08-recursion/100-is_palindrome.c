@@ -16,7 +16,6 @@ int is_palindrome(char *s)
 
 /**
  * is_palindrome_ - recursively determines if a string is a panlindrome
- * @s: input string
  * @start: pointer to start of string
  * @end: pointer to end of string
  *
@@ -39,7 +38,7 @@ int is_palindrome_(char *start, char *end)
 }
 
 /**
- * lower - convert a char to lowercase
+ * tolower_ - convert a char to lowercase
  * @c: char to be converted
  *
  * Return: void
@@ -53,7 +52,7 @@ char tolower_(char c)
 }
 
 /**
- * skip - skips a char if it is not an alphabet
+ * isalpha_ - skips a char if it is not an alphabet
  * @c: char to skip
  *
  * Return: 1 if char should be skipped, 0 if not
@@ -64,7 +63,7 @@ int isalpha_(char c)
 }
 
 /**
- * strleng - returns the length of the string
+ * strlen_ - returns the length of the string
  * @s: input string
  * @i: base counter
  *
