@@ -9,3 +9,5 @@ int _pow_recursion(int x, int y);
 int sq_root(int, int);
 int is_prime_number(int n);
 int is_prime(int, int);
+int wildcmp(char *s1, char *s2);
+int wildcmp(char *s1, char *s2);
