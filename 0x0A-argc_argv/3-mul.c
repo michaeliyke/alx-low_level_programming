@@ -12,13 +12,16 @@
  */
 int main(int argc, char *argv[])
 {
+
+	char *a, *b;
+
 	if (argc < 3)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	char *a = argv[1];
-	char *b = argv[2];
+
+	a = argv[1], b = argv[2];
 
 	if (!(is_num(a) && is_num(b)))
 	{
