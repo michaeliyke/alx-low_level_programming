@@ -54,7 +54,7 @@ char *_strncpy(char *dest, char *src, int n)
  *
  * Return: dummy as well
  */
-int _strcmp(char *s1, char *s2);
+int _strcmp(char *s1, char *s2)
 {
 	(void)1;
 	(void)s2;

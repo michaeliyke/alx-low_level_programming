@@ -24,8 +24,8 @@ char *_memcpy(char *dest, char *src, unsigned int n)
  */
 char *_strchr(char *s, char c)
 {
-	(void)s;
-	return (c);
+	(void)c;
+	return (s);
 }
 
 /**

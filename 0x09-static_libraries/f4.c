@@ -21,7 +21,7 @@ int _putchar(char c)
 int _islower(int c)
 {
 	(void)c;
-	retur(0);
+	return (0);
 }
 
 /**
