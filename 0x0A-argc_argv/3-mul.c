@@ -4,7 +4,7 @@
 #include "main.h"
 
 /**
- * main - program that adds positive numbers.
+ * main - program that multiplies two numbers.
  * @argc: the total number of arguments passed to the program
  * @argv: an array of string arguments passed to the program
  *
