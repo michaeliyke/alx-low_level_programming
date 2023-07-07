@@ -11,7 +11,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int result = 1, i = 1;
+	int result = 0, i = 1;
 
 	if (argc == 1)
 	{
@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 			printf("Error\n");
 			return (1);
 		}
-		result *= atoi(x);
+		result += atoi(x);
 		i++;
 	}
 	printf("%d\n", result);
