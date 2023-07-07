@@ -41,6 +41,8 @@ int main(int argc, char *argv[])
  */
 int is_num(char *s)
 {
+	if (*s == '-')
+		s++;
 	while (*s != '\0')
 	{
 		if (!isdigit(*s))
