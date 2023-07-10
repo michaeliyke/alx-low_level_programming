@@ -11,16 +11,16 @@ int **alloc_grid(int width, int height)
 {
 	int **D2, *D2i, i, j;
 
-	if (width < 0 || height < 0)
+	if (width <= 0 || height <= 0)
 		return (NULL);
 
 	D2 = malloc(sizeof(*D2) * height);
-	if (!D2)
+	if (D2 == NULL)
 		return (NULL);
 	for (i = 0; i < height; i++)
 	{
 		D2i = malloc(sizeof(*D2i) * width);
-		if (!D2i)
+		if (D2i == NULL)
 			return (NULL);
 		for (j = 0; j < width; j++)
 			D2i[j] = 0;
