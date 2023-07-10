@@ -5,17 +5,20 @@
  * str_concat - concatenates two string
  * @s1: first string
  * @s2: second string
+ *
+ * Return: pointer to new string
  */
 char *str_concat(char *s1, char *s2)
 {
-	char *t = s1, *p;
+	char *t, *p;
 	unsigned int size, i = 0;
 
+	t = s1 ? s1 : "\0";
 	while (*t != '\0')
 		++t;
 
 	size = t - s1;
-	t = s2;
+	t = s2 ? s2 : "\0";
 
 	while (*t != '\0')
 		++t;
