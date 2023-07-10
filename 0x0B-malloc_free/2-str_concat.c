@@ -34,7 +34,7 @@ char *str_concat(char *s1, char *s2)
 		p[i] = *t, ++i, ++t;
 	}
 
-	p[size] = '\n';
+	p[size] = '\0';
 
 	return (p);
 }
