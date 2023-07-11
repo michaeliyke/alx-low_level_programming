@@ -40,7 +40,6 @@ char *argstostr(int argc, char **argv)
 		++ptr_final;
 	}
 	*ptr_final = '\0';
-	printf("First: %c, Last: %c", *final_str, *ptr_final);
 	return (final_str);
 }
 
