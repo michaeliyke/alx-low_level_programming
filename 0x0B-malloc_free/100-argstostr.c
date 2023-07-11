@@ -23,7 +23,7 @@ char *argstostr(int argc, char **argv)
 		size += (count(word) + 1); /* + 1 because of the newlines */
 	}
 
-	final_str = malloc(sizeof(*final_str) * (size - 1));
+	final_str = malloc(sizeof(*final_str) * (size));
 	if (final_str == NULL)
 		return (NULL);
 	ptr_final = final_str;
