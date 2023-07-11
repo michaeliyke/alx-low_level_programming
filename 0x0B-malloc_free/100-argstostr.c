@@ -14,7 +14,7 @@ char *argstostr(int argc, char **argv)
 	char *word, *final_str, *ptr_final;
 	int i, size = 0;
 
-	if (argc == 1 || argv == NULL)
+	if (argc == 0 || argv == NULL)
 		return (NULL);
 
 	for (i = 0; i < argc; i++)
