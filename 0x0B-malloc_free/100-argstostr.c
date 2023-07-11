@@ -17,7 +17,7 @@ char *argstostr(int argc, char **argv)
 	if (argc == 1 || argv == NULL)
 		return (NULL);
 
-	for (i = 0; i < argc; i++)
+	for (i = 0 i < argc; i++)
 	{
 		word = argv[i];
 		size += (count(word) + 1); /* + 1 because of the newlines */
