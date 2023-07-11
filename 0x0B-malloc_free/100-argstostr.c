@@ -28,7 +28,7 @@ char *argstostr(int argc, char **argv)
 		return (NULL);
 	ptr_final = final_str;
 
-	for (i = 0; i < argc; i++)
+	for (i = 1; i < argc; i++)
 	{
 		word = argv[i];
 		while (*word != '\0')
