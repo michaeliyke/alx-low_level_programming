@@ -28,7 +28,9 @@ int main(void)
 	char **tab;
 
 	/* tab = strtow("      ALX School         #cisfun      "); */
-	tab = strtow(" ");
+	/* tab = strtow(" Talk is cheap. Show me the code. "); */
+	/* tab = strtow("   !@#$^&*(())_Talk  ><><.., ][{} 76478 is ~~     cheap :)   .   Show #$45&*(45 me  873589 the |[]{} -_=+ code.^&     "); */
+	tab = strtow("Talk is cheap. Show me the code.");
 	if (tab == NULL)
 	{
 		printf("Failed\n");
