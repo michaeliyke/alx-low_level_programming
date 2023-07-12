@@ -44,8 +44,6 @@ char **strtow(char *str)
 			++start;
 		}
 	}
-	// ++words;
-	// *words = "\0";
 	return (words_);
 }
 
