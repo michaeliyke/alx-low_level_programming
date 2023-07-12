@@ -78,11 +78,11 @@ void fillword(char *word, char *start, char *end)
  */
 int isspace_(char *character)
 {
+	int i;
+	char sp_chars[MAX_SPACES] = {'\n', ' ', '\t', '\f', '\r', '\v', '\0'};
+
 	if (character == NULL)
 		return (0);
-
-	char sp_chars[MAX_SPACES] = {'\n', ' ', '\t', '\f', '\r', '\v', '\0'};
-	int i;
 
 	for (i = 0; i < 4; i++)
 	{
