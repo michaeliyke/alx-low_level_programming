@@ -11,10 +11,11 @@
 char **strtow(char *str)
 {
 	char *start = str, *end, *word, **words, **words_;
-	int words_count = count_words(str) + 1; /* Plus 1 for null char */
+	int words_count = count_words(str); /* Plus 1 for null char */
 
-	if (str == NULL || *str == '\0')
+	if (str == NULL || *str == '\0' || words_count == 0)
 		return (NULL);
+	printf("WORD COUNT: %d\n", words_count);
 
 	words = malloc(sizeof(**words) * words_count);
 	words_ = words;
@@ -50,8 +51,8 @@ char **strtow(char *str)
 /**
  * fillword - fill a word memory slot with chars within a given boundary
  * @word: word meomry slot
- * @ch: start word boudary in memory
- * @p2: end word boudary in memory
+ * @start: start word boudary in memory
+ * @end: end word boudary in memory
  *
  * Return: void
  */
@@ -71,8 +72,8 @@ void fillword(char *word, char *start, char *end)
 }
 
 /**
- * isspace - report if a given char token is a space char
- * @ch: char token to check
+ * isspace_ - report if a given char token is a space char
+ * @character: char token to check
  *
  * Return: 1 if true and 0 if false
  */
@@ -93,7 +94,7 @@ int isspace_(char *character)
 }
 
 /**
- * count_spaces - counts number of distinct spaces in a string
+ * count_words - counts number of distinct spaces in a string
  * @str: input string
  *
  * Return: integer number of distinct spaces
