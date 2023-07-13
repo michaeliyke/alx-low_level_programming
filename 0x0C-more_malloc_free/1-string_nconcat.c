@@ -63,7 +63,7 @@ char *copyof(char *s1, char *s2, unsigned int n)
 
 /**
  * strlen_ - returns length of a string
- * string - input string whose length is needed
+ * @string: input string whose length is needed
  *
  * Return: length of string
  */
