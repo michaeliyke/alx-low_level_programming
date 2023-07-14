@@ -12,10 +12,28 @@ int main(void)
 {
 	char *s;
 
-	s = string_nconcat(NULL, "Hello", 1);
+	s = string_nconcat("Hello", NULL, 12);
 	if (s == NULL)
 	{
-		printf("failed\n");
+		printf("failed 0\n");
+		return (1);
+	}
+	printf("%s\n", s);
+	free(s);
+
+	s = string_nconcat(NULL, "Hello", 0);
+	if (s == NULL)
+	{
+		printf("failed 1\n");
+		return (1);
+	}
+	printf("%s\n", s);
+	free(s);
+
+	s = string_nconcat(NULL, NULL, 10);
+	if (s == NULL)
+	{
+		printf("failed 2\n");
 		return (1);
 	}
 	printf("%s\n", s);
