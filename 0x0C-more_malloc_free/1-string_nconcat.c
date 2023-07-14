@@ -13,15 +13,14 @@
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	unsigned int len2;
-	char *empty = "";
 
 	if (s1 == NULL && s2 == NULL)
-		return (empty);
+		return (copyof("", "", 0));
 	if (n == 0 || s2 == NULL)
 	{
 		if (s1 == NULL)
-			return (empty);
-		return (copyof(s1, empty, 0));
+			return (copyof("", "", 0));
+		return (copyof(s1, "", 0));
 	}
 
 	len2 = strlen_(s2);
@@ -45,8 +44,14 @@ char *copyof(char *s1, char *s2, unsigned int n)
 	unsigned int len1 = strlen_(s1);
 	unsigned int size = len1 + n;
 	unsigned int i, j;
-	char *tem = malloc(sizeof(*tem) * (size + 1));
+	char *tem;
 
+	if (s1 == NULL && s2 == NULL)
+	{
+		return ((char *)malloc(0));
+	}
+
+	tem = malloc(sizeof(*tem) * (size + 1));
 	if (tem == NULL)
 	{
 		return (NULL);
