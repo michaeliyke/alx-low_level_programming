@@ -21,19 +21,19 @@ int main(void)
 	printf("%s\n", s);
 	free(s);
 
-	s = string_nconcat(NULL, "Hello", 0);
+	s = string_nconcat(NULL, NULL, 10);
 	if (s == NULL)
 	{
-		printf("failed 1\n");
+		printf("failed 2\n");
 		return (1);
 	}
 	printf("%s\n", s);
 	free(s);
 
-	s = string_nconcat(NULL, NULL, 10);
+	s = string_nconcat(NULL, "Hello", 0);
 	if (s == NULL)
 	{
-		printf("failed 2\n");
+		printf("failed 1\n");
 		return (1);
 	}
 	printf("%s\n", s);
