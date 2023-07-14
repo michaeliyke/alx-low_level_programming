@@ -12,20 +12,19 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int len2 = strlen_(s2);
+	unsigned int len2;
 
 	if (s1 == NULL && s2 == NULL)
-	{
 		return (NULL);
-	}
-	if (n <= 0 || s2 == NULL)
-	{
+	if (n == 0 || s2 == NULL)
 		return (copyof(s1, "", 0));
-	}
+	if (s1 == NULL)
+		return (copyof(s2, "", 0));
+
+	len2 = strlen_(s2);
+
 	if (n >= len2)
-	{
 		return (copyof(s1, s2, len2));
-	}
 	return (copyof(s1, s2, n));
 }
 
