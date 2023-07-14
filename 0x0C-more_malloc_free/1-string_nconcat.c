@@ -47,24 +47,16 @@ char *copyof(char *s1, char *s2, unsigned int n)
 	char *tem;
 
 	if (s1 == NULL && s2 == NULL)
-	{
 		return ((char *)malloc(0));
-	}
 
 	tem = malloc(sizeof(*tem) * (size + 1));
 	if (tem == NULL)
-	{
 		return (NULL);
-	}
 
 	for (i = 0; i < len1; i++)
-	{
 		tem[i] = s1[i];
-	}
 	for (j = 0; j < n; j++)
-	{
 		tem[i + j] = s2[j];
-	}
 	tem[i + j] = '\0';
 	return (tem);
 }
