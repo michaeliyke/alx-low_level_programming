@@ -15,6 +15,12 @@ void *_realloc(void *ptr, unsigned int oldsize, unsigned int newsize)
 	char *block, *ptrr = (char *)ptr;
 	unsigned int i = 0;
 
+	if (newsize == 0 && ptr)
+	{
+		free(ptr);
+		return (NULL);
+	}
+
 	if (oldsize == newsize)
 		return (ptr);
 
