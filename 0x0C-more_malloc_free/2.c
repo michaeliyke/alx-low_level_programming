@@ -1,37 +1,61 @@
-/* C program to understand need of typecasting in DMA */
-/* www.codewindow.in */
-
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-// Driver code
-int main()
+void *_realloc(void *, unsigned int, unsigned int);
+
+/**
+ * simple_print_buffer - prints buffer in hexa
+ * @buffer: the address of memory to print
+ * @size: the size of the memory to print
+ *
+ * Return: Nothing.
+ */
+void simple_print_buffer(char *buffer, unsigned int size)
 {
-	int n, i;
-	int *p; // Integer pointer is declared
+	unsigned int i;
 
-	printf("Enter a valid range: ");
-	scanf("%d", &n);
+	i = 0;
+	while (i < size)
+	{
+		if (i % 10)
+		{
+			printf(" ");
+		}
+		if (!(i % 10) && i)
+		{
+			printf("\n");
+		}
+		printf("0x%02x", buffer[i]);
+		i++;
+	}
+	printf("\n");
+}
 
-	p = malloc(sizeof(int) * n); // An int array of n elements has been assigned to the pointer
-	// p = (int *)malloc(n * sizeof(int)); // An int array of n elements has been assigned to the pointer
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+	char *p;
+	unsigned int i;
+	unsigned int new_size;
 
+	new_size = 0;
+	p = _realloc(NULL, sizeof(char) * 30, sizeof(char) * new_size);
 	if (p == NULL)
-	{ // Checking if memory allocation is successful or not
-		printf("\nMemory allocation unsuccessful: %d", n);
-		exit(0);
+	{
+		printf("Failed\n");
+		return (1);
 	}
-	else
-	{ // Else memory allocation is successful
-		printf("\nMemory allocation successful");
-		printf("\nEnter the elements of array: ");
-
-		for (i = 0; i < n; ++i)
-			scanf("%d", p + i); // Array elements are taken as input
-
-		printf("\nElements of the array are: ");
-		for (i = 0; i < n; i++)
-			printf("%d ", *(p + i)); // Print element of the array
+	i = 0;
+	while (i < new_size)
+	{
+		p[i++] = 98;
 	}
-	return 0;
+	simple_print_buffer(p, new_size);
+	free(p);
+	return (0);
 }

@@ -13,13 +13,7 @@
 void *_realloc(void *ptr, unsigned int oldsize, unsigned int newsize)
 {
 	char *block, *ptrr = (char *)ptr;
-	unsigned i = 0;
-
-	if (newsize == 0)
-	{
-		free(ptr);
-		return (NULL);
-	}
+	unsigned int i = 0;
 
 	if (oldsize == newsize)
 		return (ptr);
@@ -33,6 +27,12 @@ void *_realloc(void *ptr, unsigned int oldsize, unsigned int newsize)
 	}
 	if (ptr == NULL)
 		return ((void *)block);
+
+	if (newsize == 0)
+	{
+		free(ptr);
+		return (NULL);
+	}
 
 	oldsize /= sizeof(*ptrr);
 	for (i = 0; i < oldsize; i++)
