@@ -4,6 +4,8 @@
 
 /**
  * main - check the code for
+ * @argc: number of commandline arguments passed to program
+ * @argv: pointer to the list of strings passed to program
  *
  * Return: Always 0.
  */
@@ -177,7 +179,8 @@ void printint(int n)
 		sign = -1;
 		n = -n;
 	}
-	do{
+	do
+	{
 		buff[i++] = '0' + n % 10;
 		n /= 10;
 	} while (n > 0);
