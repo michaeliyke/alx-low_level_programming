@@ -1,6 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
-#include <unistd.h>
+#include <limits.h>
 
 /**
  * main - check the code for
