@@ -38,7 +38,7 @@ unsigned int productof(unsigned int a, unsigned int b)
 }
 
 /**
- *  atoi - convert a string into number
+ *  atoi_ - convert a string into number
  * returns 0 if str is not numeric
  * @str: string input
  *
@@ -78,7 +78,7 @@ int atoi_(char *str)
 }
 /**
  * writeline - write a string to the stdout followed by newline
- * @str - string to write
+ * @str: - string to write
  *
  * Return: on successful return 1
  * On error, -1 is returned, and errno is set appropriately.
@@ -94,7 +94,7 @@ int writeline(char *str)
 
 /**
  * _putstring - write a string to the stdout
- * @str - string to write
+ * @str: - string to write
  *
  * Return: on successful return 1
  * On error, -1 is returned, and errno is set appropriately.
@@ -132,7 +132,7 @@ int isdigits(char *x)
 }
 
 /**
- * isdigit - reports if eachchars of a string is a digit beween 0 and 9
+ * isdigit_ - reports if eachchars of a string is a digit beween 0 and 9
  * @x: input char
  *
  * Return: 1 if true and 0 if false
@@ -177,8 +177,7 @@ void printint(int n)
 		sign = -1;
 		n = -n;
 	}
-	do
-	{
+	do{
 		buff[i++] = '0' + n % 10;
 		n /= 10;
 	} while (n > 0);
