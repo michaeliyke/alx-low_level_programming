@@ -3,12 +3,12 @@
 #include "dog.h"
 
 /**
- * new_dog - creates a new struct dpg type
+ * new_dog - creates a new struct dog type
  * @name: name of dog
  * @age: age of dog
  * @owner: owner of dog
  *
- * Return pointer to new struct dog
+ * Return: pointer to new struct dog
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
