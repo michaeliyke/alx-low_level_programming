@@ -4,7 +4,10 @@
 
 /**
  * main - program that prints opcode of its own main
+ * @argc: Number of program arguments
+ * @argv: string arguments
  *
+ * Return: returns 0 on success and other codes otherwise
  */
 int main(int argc, char *argv[])
 {
