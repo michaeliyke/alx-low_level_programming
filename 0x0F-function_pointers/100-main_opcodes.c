@@ -8,20 +8,24 @@
  */
 int main(int argc, char *argv[])
 {
+	int x, i = 0, (*func_main)(int, char **);
+	unsigned char *fn_buff;
+
 	if (argc != 2)
 	{
 		printf("Error\n");
 		exit(1);
 	}
-	int x = atoi(argv[1]);
+
+	x = atoi(argv[1]);
 	if (x < 0)
 	{
 		printf("Error\n");
 		exit(2);
 	}
-	int (*func_main)(int, char **) = &main;
-	unsigned char *fn_buff = (unsigned char *)func_main;
-	int i = 0;
+
+	func_main = &main;
+	fn_buff = (unsigned char *)func_main;
 
 	for (i = 0; i < x; i++)
 		printf("%02x ", fn_buff[i]);
