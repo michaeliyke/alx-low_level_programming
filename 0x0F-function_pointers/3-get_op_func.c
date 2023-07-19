@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 /**
- * get_op_func - selects the aproperiate function to exeute
+ * get_op_func - selects the correct function to perform an operation
  * @s: input string
  *
  * Return: function pointer
@@ -20,15 +20,13 @@ int (*get_op_func(char *s))(int, int)
 	    {NULL, NULL}};
 	int i = 0;
 	char *op;
-	int (*f)(int, int);
 
 	while (ops[i].op != NULL)
 	{
 		op = ops[i].op;
-		f = ops[i].f;
 		if (*op == *s || (strlen(s) == 3 && *(s + 1) == *op))
 		{
-			return (f);
+			return (ops[i].f);
 		}
 		i++;
 	}
