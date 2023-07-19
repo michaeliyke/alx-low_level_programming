@@ -32,6 +32,6 @@ int main(int argc, char *argv[])
 
 	for (i = 0; i < x; i++)
 		printf("%02x ", fn_buff[i]);
-	printf('\n');
+	printf("\n");
 	return (0);
 }
