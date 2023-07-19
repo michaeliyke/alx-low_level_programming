@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 /**
  * print_name - prints a string name
  * @name: a string
@@ -7,5 +9,6 @@
  */
 void print_name(char *name, void (*f)(char *))
 {
-	f(name);
+	if (name != NULL && f != NULL)
+		f(name);
 }
