@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	fn_buff = (unsigned char *)func_main;
 
 	for (i = 0; i < x; i++)
-		printf("%02x ", fn_buff[i]);
+		printf("%02hhx ", fn_buff[i]);
 	printf("\n");
 	return (0);
 }
