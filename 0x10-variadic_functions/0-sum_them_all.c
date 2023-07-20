@@ -21,12 +21,3 @@ int sum_them_all(const unsigned int n, ...)
 	va_end(numbers);
 	return (total);
 }
-
-int main(void)
-{
-	printargs(5, 2, 14, 84, 97, 15, -1, 48, -1);
-	printargs(84, 51, -1, 3);
-	printargs(-1);
-	printargs(1, -1);
-	return 0;
-}
