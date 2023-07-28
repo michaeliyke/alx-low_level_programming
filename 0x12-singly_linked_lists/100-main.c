@@ -12,11 +12,3 @@ int main(void)
 	printf("%snature, challenges one to a race.)\n", s);
 	return (0);
 }
-
-__attribute__((constructor)) void init(void)
-{
-	char *s;
-
-	s = "You're beat! and yet, you must allow,\n";
-	printf("%sI bore my house upon my back!\n", s);
-}
