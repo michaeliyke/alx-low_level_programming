@@ -2,6 +2,9 @@
 
 /**
  * list_len - returns the number of elements in a linked list
+ * @h: the head of a linked list
+ *
+ * Return: number of elements in the linked list
  */
 size_t list_len(const list_t *h)
 {
