@@ -1,19 +1,17 @@
 0x13. C - More singly linked lists
 
-Write a function that frees a listint_t list.
-void free_listint2(listint_t **head);
-The function sets the head to NULL
+Write a function that deletes the head node of a listint_t linked list, and returns the head node’s data (n).
+
+if the linked list is empty return 0
 ----------------------------------------
-free_listint2 free_listint(listint_t **head);
-declare a listint_t *ptr;
-
-
-while ((*head)->next != NULL):
-  ptr = (*head)->next
-  free(*head)
-  (*head) = ptr;
-free(*head);
-*head = NULL;
+int pop_listint(listint_t **head);
+if(head == NULL || *head == NULL)
+  return (0)
+set ptr to *head
+set n tp ptr.n
+set head to head.next
+free ptr
+return (n);
 
 bet lists.h *.c
 cls && compile *.c && ./a.out
