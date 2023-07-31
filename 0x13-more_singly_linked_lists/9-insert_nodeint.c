@@ -3,6 +3,7 @@
 /**
  * insert_nodeint_at_index - add node at the end of list
  * @head: pointer to the pointer to the head of list
+ * @idx: index of new element on the list
  * @n: n property for the new node
  *
  * Return: pointer to new node
@@ -10,8 +11,8 @@
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	listint_t *new_t = malloc(sizeof(*new_t));
-	listint_t *ptr, *tem;
-	int i = 0; /* counter */
+	listint_t *ptr;
+	unsigned int i = 0; /* counter */
 
 	if (new_t == NULL)
 		return (NULL);
@@ -23,8 +24,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (new_t);
 	}
 	ptr = *head;
-	while (i <= idx && ptr->next != NULL)
+	while (1)
 	{
+		if (i == idx - 1 && ptr->next != NULL)
+			break;
 		ptr = ptr->next;
 		i++;
 	}
