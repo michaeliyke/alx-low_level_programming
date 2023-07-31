@@ -1,25 +1,25 @@
 0x13. C - More singly linked lists
 
-Write a function that returns the nth node of a listint_t linked list.
-where index is the index of the node, starting at 0
-if the node does not exist, return NULL
+Write a function that returns the sum of all the data (n) of a listint_t linked list.
+
+if the list is empty, return 0
 ----------------------------------------
 
+/*
+sum_listint - sum of all the data (n) of a listint_t linked list
+@head: pointer to the head of the list
+Return: The sum of all data
+*/
+int sum_listint(listint_t *head);
+declare int total as set to 0;
 
-listint_t *get_nodeint_at_index(listint_t *head, unsigned int index);
-if(head == NULL)
-  return (NULL)
-declare pointer to listint_t node *node and set to NULL
-declare an unsingned int i for counter;
-
-set node to pointer to head
-while (1)
-  {if(i == index || node == NULL)break;
-  node = node->next;
-  i++;}
-return (node);
-
-
+if(head == NULL)return (0);
+while(ptr != NULL)
+{
+  total += ptr->n;
+  ptr = ptr->next;
+}
+return (total);
 
 bet lists.h *.c
 cls && compile *.c && ./a.out
