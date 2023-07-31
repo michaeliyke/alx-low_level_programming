@@ -1,23 +1,20 @@
 0x13. C - More singly linked lists
 
 
-Write a function that returns the number of elements in a linked listint_t list.
+Write a function that adds a new node at the beginning of a listint_t list.
 
-/**
-Prototype: size_t listint_len(const listint_t *h);
+Prototype: listint_t *add_nodeint(listint_t **head, const int n);
+Return: the address of the new element, or NULL if it failed
+
 ----------------------------------------
 
-declare constant var listint_t *ptr;
-declare size_t counter and set to 0;
+declare *ptr and set ptr to malloc(sizeof(*ptr));
 
-if head is null return 0
+if ptr is NULL return (NULL);
+set ptr->n to  n
+set ptr->next to head
+set head to ptr
+return ptr
 
-set ptr to head
-while(ptr != null)
-  set ptr to ptr->next
-  increment countr
-
-return counter
-
-Run bet lists.h *.c
-Run cls && compile *.c && ./a.out
+bet lists.h *.c
+cls && compile *.c && ./a.out
