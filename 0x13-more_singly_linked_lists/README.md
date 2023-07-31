@@ -1,20 +1,19 @@
 0x13. C - More singly linked lists
 
 
-Write a function that prints all the elements of a listint_t list.
-Return: the number of nodes
-Format: see example
-You are allowed to use printf
+Write a function that returns the number of elements in a linked listint_t list.
+
+/**
+Prototype: size_t listint_len(const listint_t *h);
 ----------------------------------------
 
 declare constant var listint_t *ptr;
-declare counter and set to 0;
+declare size_t counter and set to 0;
 
 if head is null return 0
 
 set ptr to head
 while(ptr != null)
-  print ptr->n with printf
   set ptr to ptr->next
   increment countr
 
