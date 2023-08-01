@@ -1,5 +1,7 @@
 #include "lists.h"
 
+void more(listint_t *head);
+
 /**
  * main - check the code
  *
@@ -20,8 +22,58 @@ int main(void)
 	add_nodeint_end(&head, 1024);
 	print_listint(head);
 	printf("-----------------\n");
-	insert_nodeint_at_index(&head, 5, 4096);
+	delete_nodeint_at_index(&head, 5);
 	print_listint(head);
-	free_listint2(&head);
+	printf("-----------------\n");
+	delete_nodeint_at_index(&head, 0);
+	print_listint(head);
+	printf("-----------------\n");
+	delete_nodeint_at_index(&head, 0);
+	print_listint(head);
+	printf("-----------------\n");
+	delete_nodeint_at_index(&head, 0);
+	print_listint(head);
+	printf("-----------------\n");
+	delete_nodeint_at_index(&head, 0);
+	print_listint(head);
+	more(head);
 	return (0);
+}
+
+/**
+ * more - some more
+ * @head: head of the game
+ *
+ * Return: void
+ */
+void more(listint_t *head)
+{
+
+	printf("-----------------\n");
+	delete_nodeint_at_index(&head, 0);
+	print_listint(head);
+	printf("-----------------\n");
+	delete_nodeint_at_index(&head, 0);
+	print_listint(head);
+	printf("-----------------\n");
+	delete_nodeint_at_index(&head, 0);
+	printf("-----------------\n");
+	delete_nodeint_at_index(&head, 0);
+	printf("-----------------\n");
+	delete_nodeint_at_index(&head, 0);
+	printf("-----------------\n");
+	delete_nodeint_at_index(&head, 0);
+	printf("-----------------\n");
+	delete_nodeint_at_index(&head, 0);
+	printf("-----------------\n");
+	delete_nodeint_at_index(&head, 0);
+	printf("-----------------\n");
+	delete_nodeint_at_index(&head, 0);
+	printf("-----------------\n");
+	delete_nodeint_at_index(&head, 0);
+	printf("-----------------\n");
+	delete_nodeint_at_index(&head, 0);
+	printf("-----------------\n");
+	delete_nodeint_at_index(&head, 0);
+	print_listint(head);
 }
