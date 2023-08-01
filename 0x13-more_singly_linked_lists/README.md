@@ -1,13 +1,18 @@
 0x13. C - More singly linked lists
 
-Write a function that returns the nth node of a listint_t linked list.
+Write a function that frees a listint_t list.
 
-Prototype: listint_t *get_nodeint_at_index(listint_t *head, unsigned int index);
-where index is the index of the node, starting at 0
-if the node does not exist, return NULL
+Prototype: void free_listint(listint_t *head);
 ----------------------------------------
 
+if curr only
+  free curr
+  set head NULL;
 
+if prev and cur
+set prev next to cur next
+free cur
+set head to NULL
 
 bet lists.h *.c
 cls && compile *.c && ./a.out
