@@ -3,36 +3,40 @@
 /**
  * insert_nodeint_at_index - add node at the end of list
  * @head: pointer to the pointer to the head of list
- * @idx: index of new element on the list
+ * @index: index of new element on the list
  * @n: n property for the new node
  *
  * Return: pointer to new node
  */
-listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
+listint_t *insert_nodeint_at_index(listint_t **head, unsigned int index, int n)
 {
-	listint_t *new_t = malloc(sizeof(*new_t));
-	listint_t *ptr;
-	unsigned int i = 0; /* counter */
+	listint_t *cur, *prev = NULL, *new_t = malloc(sizeof(*new_t));
+	unsigned int i = 0;
 
-	if (new_t == NULL)
+	if (new_t == NULL || head == NULL)
 		return (NULL);
 	new_t->n = n;
 	new_t->next = NULL;
-	if (*head == NULL)
+
+	cur = *head;
+	for (i = 0; i < index && cur != NULL; i++)
 	{
+		prev = cur;
+		cur = cur->next;
+	}
+
+	if (i == index && prev == NULL)
+	{
+		new_t->next = *head;
 		*head = new_t;
 		return (new_t);
 	}
-	ptr = *head;
-	while (1)
+	else if (i == index && prev != NULL)
 	{
-		if (i == idx - 1 && ptr->next != NULL)
-			break;
-		ptr = ptr->next;
-		i++;
+		new_t->next = cur;
+		prev->next = new_t;
+		return (new_t);
 	}
-	/* insert it here */
-	new_t->next = ptr->next;
-	ptr->next = new_t;
-	return (new_t);
+
+	return (NULL);
 }

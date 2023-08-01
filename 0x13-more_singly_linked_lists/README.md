@@ -8,8 +8,10 @@ Returns: the address of the new node, or NULL if it failed
 if it is not possible to add the new node at index idx, do not add the new node and return NULL
 ----------------------------------------
 
-
-int sum_listint(listint_t *head);
+if prev == NULL: set new_t.next to curr
+else:
+  set new_t.next to curr
+  set prev.next = new_t
 
 
 bet lists.h *.c
