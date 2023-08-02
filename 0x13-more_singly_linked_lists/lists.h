@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <unistd.h>
 
 /**
  * struct listint_s - singly linked list
@@ -32,4 +33,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n);
 int delete_nodeint_at_index(listint_t **head, unsigned int index);
 listint_t *delete_node(listint_t *node);
 listint_t *reverse_listint(listint_t **head);
+size_t print_listint_safe(listint_t *head);
+int _strlen(char *string);
+int _writestring(char *str);
+int print_int(long int n);
+listint_t *end_of_list(listint_t *head);
+int has_loop(listint_t *head);
 #endif
