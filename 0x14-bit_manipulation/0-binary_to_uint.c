@@ -1,15 +1,25 @@
 #include "main.h"
 
 /**
- * binary_to_uint - gagagha
+ * binary_to_uint - entry handler for binary to unsigned int conversion
+ * @b: binary string which is to be converted to unsigned int
+ *
+ * Return: returns the resulting unsigned integer
  */
 unsigned int binary_to_uint(const char *b)
 {
-	bity_t *head = get_bits(b), *ptr;
-	unsigned int total;
+	char *cpy = malloc(sizeof(*cpy) * _strlen((char *)b));
+	bity_t *head, *ptr;
+	unsigned int total = 0;
+	char *_;
+	(void)_;
 
+	_ = _strcpy(cpy, (char *)b);
+	_strrev(cpy);
+	head = get_bits(cpy);
 	if (head == NULL)
 		return (0);
+	/* list_bity(head); */
 	for (ptr = head; ptr != NULL; ptr = ptr->next)
 	{
 		if (ptr->ch == '1')
@@ -19,11 +29,12 @@ unsigned int binary_to_uint(const char *b)
 }
 
 /**
- * add_nodeint - add node at the begining of list
+ * add_node - add node at the begining of list
  * @head: pointer to the pointer to the head of list
- * @n: n property for the new node
+ * @index: index property for the new node
+ * @ch: ch property for the new node
  *
- * Return: pointer to new node
+ * Return: pointer to new bity node
  */
 bity_t *add_node(bity_t *head, int index, char ch)
 {
@@ -39,55 +50,23 @@ bity_t *add_node(bity_t *head, int index, char ch)
 }
 
 /**
- * converts an integer to a binary string
+ * get_bits - builds the the bity linked list with binary string
+ * @chars: the binary string which is to be converted to to unsigned decimal
+ *
+ * Return: returns a bity linked list
  */
-int *get_bits(char *chars)
+bity_t *get_bits(char *chars)
 {
-	int i, len = _strlen(chars); /* counter */
+	int i, j, len = _strlen(chars); /* counter */
 	char ch;
-
 	bity_t *head = NULL;
-	for (i = 0; i < len; i++)
+
+	for (i = 0, j = 1; i < len; i++, j <<= 1)
 	{
 		ch = chars[i];
 		if (ch != '0' && ch != '1')
 			return (0);
-		head = add_node(head, i, ch);
+		head = add_node(head, j, ch);
 	}
 	return (head);
-}
-
-/**
- * _strlen - returns length of a string
- * @string: input string whose length is needed
- *
- * Return: length of string
- */
-int _strlen(char *string)
-{
-	char *pointer = string;
-
-	if (string == NULL || *string == '\0')
-		return (0);
-	while (*string != '\0')
-		++string;
-	return ((string - pointer));
-}
-
-/**
- * converts an integer to a binary string
- */
-int *count_bits(int num)
-{
-	int i; /* counter */
-	/* int *box = malloc(sizeof(*box) * 100); */
-
-	for (i = 0; num != 0; num >>= 1, i++)
-	{
-		/* box[i] = num & 1; */
-		printf("%d", num & 1);
-		putchar(0 & 1);
-	}
-	/* box[i++] = '\n'; */
-	return (NULL);
 }

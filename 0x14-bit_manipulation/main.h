@@ -3,6 +3,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * struct bity - struct to rep the info of each binary token for efficient use
+ * @ch: represents the binary char token - either 1 or 0
+ * @index: reprsents the heirarchy of this token during calculations
+ * @next: the next bity node
+ *
+ * This struct contructs enough info to effectively understand the significance
+ *  of the token during calculations
+ */
 typedef struct bity
 {
 	char ch;
@@ -12,6 +21,9 @@ typedef struct bity
 
 bity_t *add_node(bity_t *head, int index, char ch);
 int _strlen(char *string);
-int *get_bits(char *chars);
+bity_t *get_bits(char *chars);
 unsigned int binary_to_uint(const char *b);
+char *_strcpy(char *dest, char *src);
+void list_bity(bity_t *h);
+void _strrev(char *a);
 #endif

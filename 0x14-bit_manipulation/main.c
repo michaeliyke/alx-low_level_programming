@@ -1,19 +1,4 @@
 #include "main.h"
-/*
-void display_bits(unsigned int v)
-{
-	unsigned int mask = 1 << 31, c;
-
-	for(c = 1; c <= 32; ++c)
-	{
-		putchar()
-		if(c % 8 == 0)
-			putchar(' ');
-	}
-	putchar('\n');
-} */
-
-int *count_bits(int c);
 
 /**
  * main - check the code
@@ -23,17 +8,18 @@ int *count_bits(int c);
 int main(void)
 {
 	unsigned int n;
+	(void)n;
 
 	n = binary_to_uint("1");
-	printf("%u\n", n);
-	/* n = binary_to_uint("101"); */
-	/* printf("%u\n", n); */
-	/* n = binary_to_uint("1e01"); */
-	/* printf("%u\n", n); */
-	/* n = binary_to_uint("1100010"); */
-	/* printf("%u\n", n); */
-	/* n = binary_to_uint("0000000000000000000110010010"); */
-	/* printf("%u\n", n); */
+	printf("1: %u\n", n);
+	n = binary_to_uint("101");
+	printf("101: %u\n", n);
+	n = binary_to_uint("1e01");
+	printf("1e01: %u\n", n);
+	n = binary_to_uint("1100010");
+	printf("1100010: %u\n", n);
+	n = binary_to_uint("0000000000000000000110010010");
+	printf("0000000000000000000110010010: %u\n", n);
 
 	return (0);
 }
