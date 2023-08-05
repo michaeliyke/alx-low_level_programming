@@ -14,7 +14,7 @@ int clear_bit(unsigned long int *n, unsigned int index)
 	if (index >= 64)
 		return (-1);
 	/* maks has all bits set to 1 except bit at index */
-	mask = ~((unsigned long int)1 << index);
+	mask = ~(1 << index);
 	*n &= mask;
 
 	return (1);
