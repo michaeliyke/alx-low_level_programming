@@ -21,6 +21,22 @@ int get_bit(unsigned long int n, unsigned int index)
 }
 
 /**
+ * count_bits - get the number of bits present in an integer
+ * @x: integer input
+ *
+ * Return: the count of the bits in x
+ */
+unsigned int count_bits(unsigned long int x)
+{
+	bity_t *head = make_bits(x);
+	int i;
+
+	for (i = 0; head != NULL; i++)
+		head = head->next;
+	return (i);
+}
+
+/**
  * add_node - add node at the begining of list
  * @head: pointer to the pointer to the head of list
  * @index: index property for the new node
