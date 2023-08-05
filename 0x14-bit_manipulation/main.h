@@ -34,5 +34,5 @@ void binarize(unsigned long int n, bity_t **head);
 bity_t *get_node(bity_t *head, int index);
 void list_bity(bity_t *h);
 bity_t *add_node_(bity_t *head, int index, char ch);
-
+int set_bit(unsigned long int *n, unsigned int index);
 #endif

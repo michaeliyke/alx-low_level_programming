@@ -14,6 +14,7 @@ int get_bit(unsigned long int n, unsigned int index)
 	bity_t *head = make_bits(n);
 	bity_t *node = get_node(head, index);
 
+	/* list_bity(head); */
 	if (node == NULL)
 		return (-1);
 	return (node->ch - '0');

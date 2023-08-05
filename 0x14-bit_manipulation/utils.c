@@ -9,13 +9,14 @@
 void list_bity(bity_t *h)
 {
 	bity_t *b = h;
+	int index;
 
 	if (h == NULL)
 		return;
 
-	while (b != NULL)
+	for (index = 0; b != NULL; index++)
 	{
-		printf("%d: %c\n", b->index, b->ch);
+		printf("%d: %c\n", index, b->ch);
 		b = b->next;
 	}
 }
