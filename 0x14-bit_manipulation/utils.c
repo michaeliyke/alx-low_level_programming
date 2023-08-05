@@ -15,7 +15,7 @@ void list_bity(bity_t *h)
 
 	while (b != NULL)
 	{
-		printf("%d\n", b->index);
+		printf("%d: %c\n", b->index, b->ch);
 		b = b->next;
 	}
 }
@@ -37,7 +37,7 @@ bity_t *get_bits(char *chars)
 		ch = chars[i];
 		if (ch != '0' && ch != '1')
 			return (0);
-		head = add_node(head, j, ch);
+		head = add_node_(head, j, ch);
 	}
 	return (head);
 }

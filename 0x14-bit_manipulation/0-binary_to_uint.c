@@ -24,7 +24,7 @@ unsigned int binary_to_uint(const char *b)
 		ch = cpy[i];
 		if (ch != '0' && ch != '1')
 			return (0);
-		head = add_node(head, j, ch);
+		head = add_node_(head, j, ch);
 	}
 
 	for (ptr = head; ptr != NULL; ptr = ptr->next)
@@ -36,14 +36,14 @@ unsigned int binary_to_uint(const char *b)
 }
 
 /**
- * add_node - add node at the begining of list
+ * add_node_ - add node at the begining of list
  * @head: pointer to the pointer to the head of list
  * @index: index property for the new node
  * @ch: ch property for the new node
  *
  * Return: pointer to new bity node
  */
-bity_t *add_node(bity_t *head, int index, char ch)
+bity_t *add_node_(bity_t *head, int index, char ch)
 {
 	bity_t *ptr = malloc(sizeof(*ptr));
 

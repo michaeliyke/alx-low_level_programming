@@ -20,7 +20,7 @@ typedef struct bity
 } bity_t;
 
 int _putchar(char c);
-bity_t *add_node(bity_t *head, int index, char ch);
+bity_t *add_node(bity_t **head, char ch, int index);
 int _strlen(char *string);
 bity_t *get_bits(char *chars);
 unsigned int binary_to_uint(const char *b);
@@ -28,5 +28,11 @@ char *_strcpy(char *dest, char *src);
 void list_bity(bity_t *h);
 void _strrev(char *a);
 void print_binary(unsigned long int n);
-void print_bin_steps(unsigned long int n);
+int get_bit(unsigned long int n, unsigned int index);
+bity_t *make_bits(unsigned long int num);
+void binarize(unsigned long int n, bity_t **head);
+bity_t *get_node(bity_t *head, int index);
+void list_bity(bity_t *h);
+bity_t *add_node_(bity_t *head, int index, char ch);
+
 #endif
