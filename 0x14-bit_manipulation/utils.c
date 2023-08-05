@@ -19,3 +19,25 @@ void list_bity(bity_t *h)
 		b = b->next;
 	}
 }
+
+/**
+ * get_bits - builds the the bity linked list with binary string
+ * @chars: the binary string which is to be converted to to unsigned decimal
+ *
+ * Return: returns a bity linked list
+ */
+bity_t *get_bits(char *chars)
+{
+	int i, j, len = _strlen(chars); /* counter */
+	char ch;
+	bity_t *head = NULL;
+
+	for (i = 0, j = 1; i < len; i++, j <<= 1)
+	{
+		ch = chars[i];
+		if (ch != '0' && ch != '1')
+			return (0);
+		head = add_node(head, j, ch);
+	}
+	return (head);
+}

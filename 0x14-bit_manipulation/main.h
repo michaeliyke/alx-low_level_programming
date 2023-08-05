@@ -27,4 +27,6 @@ unsigned int binary_to_uint(const char *b);
 char *_strcpy(char *dest, char *src);
 void list_bity(bity_t *h);
 void _strrev(char *a);
+void print_binary(unsigned long int n);
+void print_bin_steps(unsigned long int n);
 #endif
