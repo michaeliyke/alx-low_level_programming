@@ -36,5 +36,5 @@ void list_bity(bity_t *h);
 bity_t *add_node_(bity_t *head, int index, char ch);
 int set_bit(unsigned long int *n, unsigned int index);
 unsigned int count_bits(unsigned long int x);
-
+int clear_bit(unsigned long int *n, unsigned int index);
 #endif
