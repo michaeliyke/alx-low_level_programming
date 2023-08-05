@@ -19,6 +19,7 @@ typedef struct bity
 	struct bity *next;
 } bity_t;
 
+int _putchar(char c);
 bity_t *add_node(bity_t *head, int index, char ch);
 int _strlen(char *string);
 bity_t *get_bits(char *chars);

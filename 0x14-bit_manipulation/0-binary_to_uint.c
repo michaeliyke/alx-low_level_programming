@@ -8,18 +8,25 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	char *cpy = malloc(sizeof(*cpy) * _strlen((char *)b));
-	bity_t *head, *ptr;
-	unsigned int total = 0;
-	char *_;
-	(void)_;
+	char *cpy = malloc(sizeof(*cpy) * _strlen((char *)b)), *_, ch;
+	int i, j, len, total = 0;
+	bity_t *head = NULL, *ptr;
 
+	(void)_; /* throw-away var to avoid compiler warning */
 	_ = _strcpy(cpy, (char *)b);
 	_strrev(cpy);
-	head = get_bits(cpy);
-	if (head == NULL)
+	len = _strlen(cpy);
+	if (cpy == NULL)
 		return (0);
-	/* list_bity(head); */
+	/*  build the the bity linked list with binary string */
+	for (i = 0, j = 1; i < len; i++, j <<= 1)
+	{
+		ch = cpy[i];
+		if (ch != '0' && ch != '1')
+			return (0);
+		head = add_node(head, j, ch);
+	}
+
 	for (ptr = head; ptr != NULL; ptr = ptr->next)
 	{
 		if (ptr->ch == '1')
@@ -50,23 +57,65 @@ bity_t *add_node(bity_t *head, int index, char ch)
 }
 
 /**
- * get_bits - builds the the bity linked list with binary string
- * @chars: the binary string which is to be converted to to unsigned decimal
+ * _strlen - returns length of a string
+ * @string: input string whose length is needed
  *
- * Return: returns a bity linked list
+ * Return: length of string
  */
-bity_t *get_bits(char *chars)
+int _strlen(char *string)
 {
-	int i, j, len = _strlen(chars); /* counter */
-	char ch;
-	bity_t *head = NULL;
+	char *pointer = string;
 
-	for (i = 0, j = 1; i < len; i++, j <<= 1)
+	if (string == NULL || *string == '\0')
+		return (0);
+	while (*string != '\0')
+		++string;
+	return ((string - pointer));
+}
+
+/**
+ * _strcpy - copies *src, including the \0 char,to dest
+ * @dest: the destination of copy operation
+ * @src: the source of copy operation
+ *
+ * Return: pointer to str
+ */
+char *_strcpy(char *dest, char *src)
+{
+	int i = _strlen(src);
+	char *ptr = dest;
+
+	while (i > 0 && *src != '\0')
 	{
-		ch = chars[i];
-		if (ch != '0' && ch != '1')
-			return (0);
-		head = add_node(head, j, ch);
+		*dest++ = *src++;
+		i--;
 	}
-	return (head);
+	*dest++ = '\0';
+	return (ptr);
+}
+
+/**
+ * _strrev -  reverses a string.
+ * @a: pointer to string to reverse
+ *
+ * Return: void
+ */
+void _strrev(char *a)
+{
+	char *b = a;
+	char temp;
+
+	while (*a != '\0')
+	{
+		a++;
+	}
+	a--;
+	while (a > b)
+	{
+		temp = *a;
+		*a = *b;
+		*b = temp;
+		a--;
+		b++;
+	}
 }
