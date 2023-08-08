@@ -2,7 +2,7 @@
 
 /**
  * create_file -  creates a file
- * @filename: pathname of file
+ * @pth: pathname of file
  * @text_content: the string to be added to the file
  * finame is the name of the file to create
  * text_content is the str to write
