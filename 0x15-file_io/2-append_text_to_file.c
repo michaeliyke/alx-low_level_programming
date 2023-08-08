@@ -28,3 +28,20 @@ int append_text_to_file(const char *filename, char *text_content)
 	close(fd);
 	return (num_written == -1 ? -1 : 1);
 }
+
+/**
+ * _strlen - returns length of a string
+ * @string: input string whose length is needed
+ *
+ * Return: length of string
+ */
+size_t _strlen(char *string)
+{
+	char *pointer = string;
+
+	if (string == NULL || *string == '\0')
+		return (0);
+	while (*string != '\0')
+		++string;
+	return ((string - pointer));
+}
