@@ -31,20 +31,3 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	free(str);
 	return (num_written);
 }
-
-/**
- * _strlen - returns length of a string
- * @string: input string whose length is needed
- *
- * Return: length of string
- */
-size_t _strlen(char *string)
-{
-	char *pointer = string;
-
-	if (string == NULL || *string == '\0')
-		return (0);
-	while (*string != '\0')
-		++string;
-	return ((string - pointer));
-}
