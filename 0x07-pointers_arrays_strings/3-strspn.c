@@ -3,7 +3,7 @@
 /**
  * _strspn - gets the length of a prefix substring
  * @s: input string
- * @accepts: chars to search for
+ * @accept: chars to search for
  *
  * Return: int number of found substring
  */
