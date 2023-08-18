@@ -11,7 +11,7 @@ int main(void)
 	char *f = "world";
 	char *t;
 
-	t = _strstr(s, f);
+	t = _strpbrk(s, f);
 	printf("%s\n", t);
 	return (0);
 }
