@@ -1,0 +1,7 @@
+#!/bin/bash
+
+clear
+
+compile 8-print_diagsums.c main.c && ./a.out
+
+
