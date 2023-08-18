@@ -2,6 +2,6 @@
 
 clear
 
-compile 4-strpbrk.c main.c _putchar.c && ./a.out
+compile 3-strspn.c main.c _putchar.c && ./a.out
 
 

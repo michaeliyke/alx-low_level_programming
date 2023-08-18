@@ -6,46 +6,30 @@
  * @accept: chars to search for
  *
  * Return: int number of found substring
+ * Retur the next point after an occurence in the main string
+ * from the substr
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int i = 0;
-	char *p = s, *a = accept, *m;
-	int left = 0, right = 0;
+	unsigned int i, j;  /* counters */
+	unsigned int k = 0; /* To track the last matching position */
 
-	while (*a != '\0' && p >= &s[0])
+	if (s == NULL || accept == NULL)
+		return (0);
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (m && *a == *p && right == 0) /* matched leftward */
+		for (j = 0; accept[j] != '\0'; j++)
 		{
-			left = 1, a++, p--;
-			continue;
-		}
-		else if (m && *a == *p && left == 0) /* match rightward */
-		{
-			right = 1, a++;
-			continue;
-		}
-		else
-		{
-			if (!m && (*a == *p))
+			if (accept[j] == s[i])
 			{
-				m = p, i++;
-				continue;
+				k++;
+				break;
 			}
-			else if (m && right && *p == *(p + 1))
+			else if (accept[j + 1] == '\0')
 			{
-				p++;
-				continue;
+				return (k);
 			}
-			else if (m && left && *p == *(p + 1))
-			{
-				p--;
-				continue;
-			}
-			else if (m && *a != *p)
-				return (i);
 		}
-		p++, i++;
 	}
-	return (i);
+	return (k);
 }
