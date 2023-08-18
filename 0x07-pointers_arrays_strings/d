@@ -2,6 +2,6 @@
 
 clear
 
-compile 7-print_chessboard.c main.c _putchar.c && ./a.out
+compile 5-strstr.c main.c _putchar.c && ./a.out
 
 
