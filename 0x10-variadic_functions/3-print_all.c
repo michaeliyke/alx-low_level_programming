@@ -4,7 +4,7 @@
 
 /**
  * print_all - print arbitrary data values
- * @format: format of values
+ * @fmt: format of values
  *
  * Return: void
  */
@@ -62,10 +62,10 @@ void print_all_ext(char c, va_list ap, char *sep)
 		b = s == NULL;
 		switch (b)
 		{
-		case 0:
+		case 1:
 			printf("%s%s", "(nil)", sep);
 			break;
-		case 1:
+		case 0:
 			printf("%s%s", s, sep);
 			break;
 		}
