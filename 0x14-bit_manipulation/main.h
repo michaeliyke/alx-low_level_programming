@@ -2,7 +2,7 @@
 #define MAIN_H
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <limits.h>
 /**
  * struct bity - struct to rep the info of each binary token for efficient use
  * @ch: represents the binary char token - either 1 or 0
