@@ -11,9 +11,12 @@ int get_bit(unsigned long int n, unsigned int index)
 {
 	unsigned int x;
 	/* 1<=index<=n */
-	if (index > n || n == ULONG_MAX)
+	if (index > n)
 		return (-1);
-
+	if (n == ULONG_MAX)
+	{
+		return (index > 64 ? 0 : 1);
+	}
 	x = n >> (index);
 	return (x & 1);
 }
