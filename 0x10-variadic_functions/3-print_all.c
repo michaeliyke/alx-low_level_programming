@@ -53,14 +53,22 @@ void print_all(const char *const fmt, ...)
 void print_all_ext(char c, va_list ap, char *sep)
 {
 	char *s;
+	int b;
 
 	switch (c)
 	{
 	case 's': /* handle string printing */
 		s = va_arg(ap, char *);
-		if (s == NULL)
-			s = "(nil)";
-		printf("%s%s", s, sep);
+		b = s == NULL;
+		switch (b)
+		{
+		case 0:
+			printf("%s%s", "(nil)", sep);
+			break;
+		case 1:
+			printf("%s%s", s, sep);
+			break;
+		}
 		break;
 	case 'f': /* handle floats printing */
 		printf("%f%s", va_arg(ap, double), sep);
@@ -70,17 +78,4 @@ void print_all_ext(char c, va_list ap, char *sep)
 		printf("%i%s", va_arg(ap, int), sep);
 		break;
 	}
-}
-
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar_(char c)
-{
-	fflush(stdout);
-	return (write(1, &c, 1));
 }
