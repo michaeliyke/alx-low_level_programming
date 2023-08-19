@@ -12,22 +12,6 @@ void print_all(const char *const format, ...)
 {
 }
 
-/**
- * getfmt - gets the right format handler
- * @c: format spec
- *
- * Return: function pointer to the right spec handler
- */
-void getfmt(char *c)
-{
-	int i = 0;
-
-	while (fmts[i].fmt != NULL)
-		if (*fmts[i].fmt == *c)
-			return (fmts[i].printer);
-	return (NULL);
-}
-
 void intprint(int *x)
 {
 	printf("%d", *x);

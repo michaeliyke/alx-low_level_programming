@@ -1,5 +1,8 @@
 #ifndef VARIADIC_FUNCTIONS_H
 #define VARIADIC_FUNCTIONS_H
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int _putchar(char c);
 int sum_them_all(const unsigned int n, ...);
@@ -12,23 +15,4 @@ void charprint(char *c);
 void floatprint(float *x);
 void strprint(int *x);
 
-/**
- * struct specs - for specification mgt
- *
- * This is to manage the format specifiers
- */
-struct specs
-{
-	char *fmt;
-	void (*printer)(char *fmt);
-};
-
-struct specs fmts[] =
-    {
-	{.fmt = 'c', .printer = NULL},
-	{.fmt = 'i', .printer = NULL},
-	{.fmt = 'f', .printer = NULL},
-	{.fmt = 's', .printer = NULL},
-	{.fmt = NULL, .printer = NULL},
-}
 #endif
