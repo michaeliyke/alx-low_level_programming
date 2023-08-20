@@ -1,89 +1,22 @@
-The Zen of Python, by Tim Peters
+When you invoke GCC, it normally does preprocessing, compilation, assembly and linking.  The "overall options" allow you to
+stop this process at an intermediate stage.  For example, the -c option says not to run the linker.  Then the output
+consists of object files output by the assembler.
 
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren't special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you're Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it's a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let's do more of those!
+Other options are passed on to one stage of processing.  Some options control the preprocessor and others the compiler
+itself.  Yet other options control the assembler and linker; most of these are not documented here, since you rarely need
+to use any of them.
 
-The Zen of Python, by Tim Peters
+Most of the command-line options that you can use with GCC are useful for C programs; when an option is only useful with
+another language (usually C++), the explanation says so explicitly.  If the description for a particular option does not
+mention a source language, you can use that option with all supported languages.
 
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren't special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you're Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it's a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let's do more of those!
+The gcc program accepts options and file names as operands.  Many options have multi-letter names; therefore multiple
+single-letter options may not be grouped: -dv is very different from -d -v.
 
+You can mix options and other arguments.  For the most part, the order you use doesn't matter.  Order does matter when you
+use several options of the same kind; for example, if you specify -L more than once, the directories are searched in the
+order specified.  Also, the placement of the -l option is significant.
 
-The Zen of Python, by Tim Peters
-
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren't special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you're Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it's a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let's do more of those!
-
-
-The Zen of Python, by Tim Peters
-
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren't special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you're Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it's a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let's do more of those!
+Many options have long names starting with -f or with -W---for example, -fmove-loop-invariants, -Wformat and so on.  Most
+of these have both positive and negative forms; the negative form of -ffoo is -fno-foo.  This manual documents only one of
+these two forms, whichever one is not the default.

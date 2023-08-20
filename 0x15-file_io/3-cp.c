@@ -41,39 +41,39 @@ int main(int ac, char **av)
 
 /**
  * f_copy - copy file contents from one fd to another
- * @fd_from: fd of the from file
- * @fd_to: fd of the to file
- * @from_pth: path name of from file
- * @to_pth: path naame of of the to file
+ * @from: fd of the from file
+ * @to: fd of the to file
+ * @pathA: path name of from file
+ * @pathB: path naame of of the to file
  *
  * Return: void
  */
-void f_copy(int *fd_from, int *fd_to, char *from_pth, char *to_pth)
+void f_copy(int *from, int *to, char *pathA, char *pathB)
 {
 	char buffer[BUFFER_SIZE];
 	ssize_t bytes_read, bytes_written;
 
-	while ((bytes_read = read(*fd_from, buffer, BUFFER_SIZE)) > 0)
+	while ((bytes_read = read(*from, buffer, BUFFER_SIZE)) > 0)
 	{
-		bytes_written = write(*fd_to, buffer, BUFFER_SIZE);
+		bytes_written = write(*to, buffer, BUFFER_SIZE);
 		if (bytes_written == -1)
 		{
-			dprintf(2, "Error: Can't write to %s\n", to_pth);
+			dprintf(2, "Error: Can't write to %s\n", pathB);
 			exit(99);
 		}
 	}
 	if (bytes_read == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", from_pth);
+		dprintf(2, "Error: Can't read from file %s\n", pathA);
 	}
-	if (close(*fd_to) == -1)
+	if (close(*to) == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", *fd_to);
+		dprintf(2, "Error: Can't close fd %d\n", *to);
 		exit(100);
 	}
-	if (close(*fd_from) == -1)
+	if (close(*from) == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", *fd_from);
+		dprintf(2, "Error: Can't close fd %d\n", *from);
 		exit(100);
 	}
 }
