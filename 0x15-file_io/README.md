@@ -1,13 +1,16 @@
-Write a program that copies the content of a file to another file.
-Usage: cp file_from file_to
+/**
+ * Write a program that copies the content of a file to another file.
+ * Usage: cp file_from file_to
+ */
 
- *
- *# if the number of argument is not the correct one, exit with code 97
+/** if the number of argument is not the correct one, exit with code 97
  *   and print Usage: cp file_from file_to, followed by a new line, on the
  *  POSIX standard error
+ *
  * if file_to already exists, truncate it
  *
  * if file_from does not exist, or if you can not read it, exit with code 98
+ *
  * and print Error: Can't read from file NAME_OF_THE_FILE, followed by a new
  * line, on the POSIX standard error
  * 	where NAME_OF_THE_FILE is the first argument passed to your program
@@ -28,3 +31,4 @@ Usage: cp file_from file_to
  *  calls. Use a buffer
  *
  * You are allowed to use dprintf
+ */

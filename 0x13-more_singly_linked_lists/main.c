@@ -22,14 +22,14 @@ int main(void)
 	add_nodeint(&head2, 1024);
 	print_listint_safe(head2);
 	head = NULL;
-	node = add_nodeint(&head, 0);	     /* set end of the list to node */
-	add_nodeint(&head, 1);		     /* latest head is 1 */
-	add_nodeint(&head, 2);		     /* latest head is 2 */
-	add_nodeint(&head, 3);		     /* latest head is 3 */
-	add_nodeint(&head, 4);		     /* latest head is 4 */
-	node->next = add_nodeint(&head, 98); /* make tail point to curr head */
-	add_nodeint(&head, 402);	     /* latest head is 402 */
-	add_nodeint(&head, 1024);	     /* latest head is 1024 */
-	/* print_listint_safe(head); */
+	node = add_nodeint(&head, 0);
+	add_nodeint(&head, 1);
+	add_nodeint(&head, 2);
+	add_nodeint(&head, 3);
+	add_nodeint(&head, 4);
+	node->next = add_nodeint(&head, 98);
+	add_nodeint(&head, 402);
+	add_nodeint(&head, 1024);
+	print_listint_safe(head);
 	return (0);
 }

@@ -9,33 +9,43 @@
  */
 size_t print_listint_safe(listint_t *head)
 {
-	listint_t *ptr = head, *end = end_of_list(head);
+	listint_t *ptr = head, *joint, *end = end_of_list(head, &joint);
 	size_t i;
 
 	if (head == NULL || end == NULL)
 		return (0);
-	for (i = 0; ptr != NULL; i++)
+	for (i = 1; ptr != NULL; i++)
 	{
-		/* print_int(ptr->n); */
-		/* putchar('\n'); */
 		printf("[%p] %d\n", (void *)ptr, ptr->n);
 		if (ptr == end)
 			break;
 		ptr = ptr->next;
 	}
-	/* printf("[%p] %d\n", (void *)head, head->n); */
+	(void)ptr;
+	(void)end;
+	(void)joint;
+	/* 0,1,2,3,4,98, 402, 1024		: 0, 1024 */
+	/* 0,1,2,3,4,     , 402, 1024		: 0, 1024 */
+	/* printf("\nEND: [%p] %d\n", (void *)end, end->n); */
+	if (joint)
+		printf("-> [%p] %d\n", (void *)joint, joint->n);
 	return (i);
 }
 
 /**
  * end_of_list - safely detects the end of a linked list
  * @head: the head of the list
+ * @joint: the very point of intersection between end and loop
  *
  * Return: Returns pointer to the end of the list
  */
-listint_t *end_of_list(listint_t *head)
+listint_t *end_of_list(listint_t *head, listint_t **joint)
 {
-	listint_t *fast = head, *slow = head, *prev_slow;
+	listint_t *fast = head, *slow = head, *prev_slow, *end;
+
+	*joint = NULL;
+	(void)prev_slow;
+	(void)end;
 
 	if (head == NULL)
 		return (NULL);
@@ -55,9 +65,16 @@ listint_t *end_of_list(listint_t *head)
 	fast = head; /* reset the value of fast for end of list tracing */
 	while (fast->next != slow->next)
 	{
+		/**
+		 * when the loop terminates:
+		 * slow.next and fast.next equal the intersection
+		 * slow however equals the last element
+		 */
 		fast = fast->next;
 		slow = slow->next;
+		*joint = slow->next;
 	}
+
 	return (slow);
 }
 
@@ -77,7 +94,8 @@ int print_int(long int n)
 		sign = -1;
 		n = -n;
 	}
-	do {
+	do
+	{
 		buff[i++] = '0' + n % 10;
 		n /= 10;
 	} while (n > 0);

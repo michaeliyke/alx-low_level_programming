@@ -37,6 +37,7 @@ size_t print_listint_safe(listint_t *head);
 int _strlen(char *string);
 int _writestring(char *str);
 int print_int(long int n);
-listint_t *end_of_list(listint_t *head);
+listint_t *end_of_list(listint_t *head, listint_t **joint);
 int has_loop(listint_t *head);
+size_t free_listint_safe(listint_t **h);
 #endif
