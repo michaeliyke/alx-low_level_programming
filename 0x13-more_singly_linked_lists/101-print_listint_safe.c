@@ -9,28 +9,23 @@
  */
 size_t print_listint_safe(listint_t *head)
 {
-	listint_t *ptr = head, *joint, *end = end_of_list(head, &joint);
 	size_t i;
+	listint_t *ptr = head, *joint, *end = end_of_list(head, &joint);
 
 	if (head == NULL || end == NULL)
 		return (0);
+
 	for (i = 1; ptr != NULL; i++)
-	{
+	{ /* cover: end != head and non loop */
 		printf("[%p] %d\n", (void *)ptr, ptr->n);
-		if (ptr == end && i != 1)
-		{
+		if (ptr == end)
 			break;
-		}
 		ptr = ptr->next;
 	}
-	(void)ptr;
-	(void)end;
-	(void)joint;
-	/* 0,1,2,3,4,98, 402, 1024		: 0, 1024 */
-	/* 0,1,2,3,4,     , 402, 1024		: 0, 1024 */
-	/* printf("\nEND: [%p] %d\n", (void *)end, end->n); */
-	if (joint)
-		printf("-> [%p] %d\n", (void *)joint, joint->n);
+	if (joint == NULL) /* return no loop case */
+		return (i);
+
+	printf("-> [%p] %d\n", (void *)joint, joint->n);
 	return (i);
 }
 
@@ -54,7 +49,9 @@ listint_t *end_of_list(listint_t *head, listint_t **joint)
 	while (1)
 	{
 		if (fast->next == NULL || fast->next->next == NULL)
+		{
 			return (fast->next == NULL ? fast : fast->next);
+		}
 		prev_slow = slow;
 		fast = fast->next->next;
 		slow = slow->next;
