@@ -61,6 +61,10 @@ listint_t *end_of_list(listint_t *head, listint_t **joint)
 			break;
 	}
 	fast = head; /* reset the value of fast for end of list tracing */
+	if (head->next == head || head->next->next == head)
+	{
+		*joint = head;
+	}
 	while (fast->next != slow->next)
 	{
 		/**
@@ -92,8 +96,7 @@ int print_int(long int n)
 		sign = -1;
 		n = -n;
 	}
-	do
-	{
+	do {
 		buff[i++] = '0' + n % 10;
 		n /= 10;
 	} while (n > 0);
