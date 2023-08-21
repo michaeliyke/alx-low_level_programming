@@ -38,25 +38,18 @@ size_t print_listint_safe(listint_t *head)
  */
 listint_t *end_of_list(listint_t *head, listint_t **joint)
 {
-	listint_t *fast = head, *slow = head, *prev_slow, *end;
+	listint_t *fast = head, *slow = head;
 
 	*joint = NULL;
-	(void)prev_slow;
-	(void)end;
-
 	if (head == NULL)
 		return (NULL);
 	while (1)
 	{
 		if (fast->next == NULL || fast->next->next == NULL)
-		{
 			return (fast->next == NULL ? fast : fast->next);
-		}
-		prev_slow = slow;
 		fast = fast->next->next;
 		slow = slow->next;
-		if (fast == slow)
-			/* we have a loop */
+		if (fast == slow) /* we have a loop */
 			break;
 	}
 	fast = head; /* reset the value of fast for end of list tracing */
@@ -71,17 +64,11 @@ listint_t *end_of_list(listint_t *head, listint_t **joint)
 		return (head->next); /* end */
 	}
 	while (fast->next != slow->next)
-	{
-		/**
-		 * when the loop terminates:
-		 * slow.next and fast.next equal the intersection
-		 * slow however equals the last element
-		 */
-		fast = fast->next;
+	{			   /* when the loop terminates: */
+		fast = fast->next; /* slow.nxt and fast.nxt equal the cross */
 		slow = slow->next;
-		*joint = slow->next;
+		*joint = slow->next; /* slow however equals the last element */
 	}
-
 	return (slow);
 }
 

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Convinient for running betty and betty-doc on our project with minimal typing
+# Ensure to inlcude the current path in the system PATH
+# usage: bet or ./bet
+
+clear
+
+betty *.c *.h && betty-doc *.c *.h
+
