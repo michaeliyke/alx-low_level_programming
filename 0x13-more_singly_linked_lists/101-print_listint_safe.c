@@ -60,9 +60,15 @@ listint_t *end_of_list(listint_t *head, listint_t **joint)
 			break;
 	}
 	fast = head; /* reset the value of fast for end of list tracing */
-	if (head->next == head || head->next->next == head)
-	{
+	if (head->next == head)
+	{ /* list of one node */
 		*joint = head;
+		return (head->next);
+	}
+	if (head->next->next == head)
+	{ /* list of two nodes */
+		*joint = head;
+		return (head->next); /* end */
 	}
 	while (fast->next != slow->next)
 	{
