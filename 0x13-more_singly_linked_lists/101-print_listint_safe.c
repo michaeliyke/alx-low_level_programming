@@ -17,8 +17,10 @@ size_t print_listint_safe(listint_t *head)
 	for (i = 1; ptr != NULL; i++)
 	{
 		printf("[%p] %d\n", (void *)ptr, ptr->n);
-		if (ptr == end)
+		if (ptr == end && i != 1)
+		{
 			break;
+		}
 		ptr = ptr->next;
 	}
 	(void)ptr;
