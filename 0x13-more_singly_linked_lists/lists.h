@@ -40,4 +40,5 @@ int print_int(long int n);
 listint_t *end_of_list(listint_t *head, listint_t **joint);
 int has_loop(listint_t *head);
 size_t free_listint_safe(listint_t **h);
+listint_t *find_listint_loop(listint_t *head);
 #endif
