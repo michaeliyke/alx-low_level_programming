@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * print_listint_safe - safely prints items of list
+ * free_listint_safe - safely prints items of list
  * @head: pointer to hed
  *
  * Return: number of nodes in the list

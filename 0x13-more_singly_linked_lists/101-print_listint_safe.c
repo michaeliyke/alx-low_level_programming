@@ -60,8 +60,6 @@ listint_t *end_of_list(listint_t *head, listint_t **joint)
 			/* we have a loop */
 			break;
 	}
-	if (slow == head)
-		return (prev_slow);
 	fast = head; /* reset the value of fast for end of list tracing */
 	while (fast->next != slow->next)
 	{
