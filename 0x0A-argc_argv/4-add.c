@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <ctype.h>
-#include <stdlib.h>
 #include "main.h"
 
 /**
@@ -12,35 +9,47 @@
  */
 int main(int argc, char *argv[])
 {
-	int result, i, tem;
-	char *s;
+	int total, i;
+	int sign = 0; /* Minus sign on/off switch */
+	char *arg;
 
 	if (argc == 1)
-	{
+	{ /* No number passed to the program */
 		printf("0\n");
+		return (0);
+	}
+	for (i = 1, total = 0; i < argc; i++)
+	{ /* Loop through all program string arguments, assign each to arg */
+		arg = argv[i];
+		if (strcmp(arg, "-") == 0)
+		{ /* if the arg is just a minus sign */
+			sign = !sign;
+			continue;
+		}
+		if (strcmp(arg, "+") == 0)
+			continue; /* Plus is the default */
+		while (*arg == '-')
+		{ /* Skip the sign part of a negative value like -7 */
+			arg++;
+			sign = !sign;
+		}
+		while (*arg == '+') /* Skip any positive signs */
+			arg++;
+		if (is_num(arg))
+		{ /* Here we simply add or subtract as needed */
+			total = sign ? total - atoi(arg) : total + atoi(arg);
+			sign = 0; /* reset minus sign here*/
+			continue;
+		}
+		printf("Error\n");
 		return (1);
 	}
-
-	for (i = 1, result = 0; i < argc; i++)
-	{
-		s = argv[i];
-		tem = atoi(s);
-
-		if (!is_num(s))
-		{
-			if (*s == '-' && is_num(s + 1))
-				continue;
-			printf("Error\n");
-			return (1);
-		}
-		result += tem;
-	}
-	printf("%d\n", result);
+	printf("%d\n", total);
 	return (0);
 }
 
 /**
- * is_num - check if a string is all digits
+ * is_num - checks if a string is all digits
  * @s: pointer to string
  *
  * Return: returns 1 if true and 0 otherwise
