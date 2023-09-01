@@ -15,7 +15,7 @@ int min__coins(int coins[], int amount, int num_coins)
 				table[a] = min(table[a], table[a - v] + 1);
 	}
 
-	return table[amount];
+	return (table[amount]);
 }
 
 int mincoins(int coins[], int amount, int num_coins)
@@ -58,7 +58,7 @@ int mincoins(int coins[], int amount, int num_coins)
 	 * The value at dp[amount] now contains the minimum number of coins
 	 * needed to make the given amount
 	 */
-	return dp[amount];
+	return (dp[amount]);
 }
 
 /**
@@ -93,5 +93,5 @@ int min_of_coins(int total_amount, int values[], int count)
 			table[amount] = min(table[amount], table[rem] + 1);
 		}
 	}
-	return table[total_amount];
+	return (table[total_amount]);
 }

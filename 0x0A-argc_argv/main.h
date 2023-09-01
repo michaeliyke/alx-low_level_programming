@@ -8,10 +8,7 @@
 
 int _putchar(char c);
 int is_num(char *s);
-int min_coins(int coins[], int amount, int num_coins);
-int min__coins(int coins[], int amount, int num_coins);
-int mincoins(int coins[], int amount, int num_coins);
-int min(int a, int b);
 int min_of_coins(int total_amount, int values[], int count);
+#define min(a, b) ((a) < (b) ? (a) : (b))
 
 #endif

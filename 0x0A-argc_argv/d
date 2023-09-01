@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Convinient for running our shell with minimal tying
+# Ensure to inlcude the current path in the system PATH
+
+clear
+
+compile 100-change.c -o change && change $*
+
