@@ -1,5 +1,13 @@
 #include "main.h"
 
+/**
+ * min__coins - returns the minimum number of coins to make change
+ * @num_coins: number of coins
+ * @coins: coin values
+ * @amount: the amount to make change for
+ *
+ * Return: returns the combined minimum number of coins to make change
+ */
 int min__coins(int coins[], int amount, int num_coins)
 {
 	int a, j, v, *table = malloc(sizeof(int) * (amount + 1));
@@ -22,7 +30,7 @@ int min__coins(int coins[], int amount, int num_coins)
  * min_of_coins - returns the minimum number of coins to make change
  * @count: number of coins
  * @values: coin values
- * @amount: the amount to make change for
+ * @total_amount: the amount to make change for
  *
  * Return: returns the combined minimum number of coins to make change
  */

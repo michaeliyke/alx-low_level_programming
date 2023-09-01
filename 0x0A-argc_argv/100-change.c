@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
  * min_of_coins - returns the minimum number of coins to make change
  * @count: number of coins
  * @values: coin values
- * @amount: the amount to make change for
+ * @total_amount: the amount to make change for
  *
  * Return: returns the combined minimum number of coins to make change
  *
@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
  * We want to fill/replace the slot table[a], so we do the following:
  * a = table[a] --- get the value on the slot earlier
  * b = table[rem]+1 --- gets the already stored value of table[rem]
- * 	and adds 1 to it. More details shortly.
+ * and adds 1 to it. More details shortly.
  * Then: table[a] = min(a, b) --- assigns the min of a and b to table[a]
  *
  * DETAILS OF table[rem]+1
