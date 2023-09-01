@@ -101,3 +101,31 @@ int min_of_coins(int total_amount, int values[], int count)
 	}
 	return (table[total_amount]);
 }
+
+/**
+ * min_coins - minimum number of coins to make change for an amount of money
+ * @amount: total amount to make chnage for
+ * @coins: coin denominations for making change
+ * @total_coins: number of coins provided
+ *
+ * Return: The minimum total number of coins to make change
+ */
+int min_coins(int amount, int coins[], int total_coins)
+{
+	int *table = malloc(sizeof(int) * (amount + 1));
+	int j, a, v, rem, x, y;
+
+	table[0] = 0; /* zero case */
+	for (a = 1, v = *coins; a <= amount; a++)
+	{
+		table[a] = INT_MAX; /* getting ready */
+		for (j = 0; j < total_coins && a >= v; j++, v = coins[j])
+		{
+			rem = a - v;  /* Get the remainder */
+			x = table[a]; /* last value on table[a] */
+			y = table[rem] == INT_MAX ? INT_MAX : table[rem] + 1;
+			table[a] = min(x, y); /* the lil maths */
+		}
+	}
+	return (table[amount]);
+}
