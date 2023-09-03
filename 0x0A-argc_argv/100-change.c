@@ -70,21 +70,18 @@ int main(int argc, char *argv[])
  * the calculation.
  */
 int min_of_coins(int total_amount, int values[], int count)
-{
+{		     /* 2147483647 ->  85899348 16711568 */
 	int amount,  /* a unit amount between 0 and total_amount */
 	    a, b, i, /* temporary variables and counter */
 	    rem,     /* remainder after subtracting the coin of choice */
-	    value;   /* each coin value */
+	    value;   /* each coin value in {1, 2, 5, 10, 25} */
 
 	/**
 	 * Table to store the list of amounts from 0 to total_amount
 	 * and their corresponding minimum number of coins
 	 */
-	int *table = malloc(sizeof(int) * (total_amount + 1));
-	/* int table[22]; */
+	int table[1000000];
 
-	if (table == NULL)
-		return (-1);
 	table[0] = 0; /* The zero case */
 	for (amount = 1; amount <= total_amount; amount++)
 	{

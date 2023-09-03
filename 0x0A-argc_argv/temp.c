@@ -34,7 +34,7 @@ int min__coins(int coins[], int amount, int num_coins)
  *
  * Return: returns the combined minimum number of coins to make change
  */
-int min_of_coins(int total_amount, int values[], int count)
+int min_of__coins(int total_amount, int values[], int count)
 {
 	int amount, /* a unit amount between 0 and total_amount */
 	    i = 0,  /* counter */

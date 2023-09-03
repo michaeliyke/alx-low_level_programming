@@ -10,6 +10,5 @@
 int _putchar(char c);
 int is_num(char *s);
 int min_of_coins(int total_amount, int values[], int count);
-int min_coins(int amount, int coins[], int total_coins);
 
 #endif
