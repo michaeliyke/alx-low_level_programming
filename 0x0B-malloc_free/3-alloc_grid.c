@@ -9,22 +9,29 @@
  */
 int **alloc_grid(int width, int height)
 {
-	int **D2 = NULL, *D2i = NULL, i, j;
+	int **ROWS = NULL, /* The top-to-bottom hieght of the grid */
+	    *COLS = NULL,  /* The left-to-right width of the grid */
+	    i, j;
 
 	if (width <= 0 || height <= 0)
-		return (D2);
+		return (ROWS);
 
-	D2 = malloc(sizeof(int *) * (height + 1));
-	if (D2 == NULL)
+	ROWS = malloc(sizeof(**ROWS) * (height));
+	if (ROWS == NULL)
 		return (NULL);
 	for (i = 0; i < height; i++)
 	{
-		D2i = malloc(sizeof(int) * (width + 1));
-		if (D2i == NULL)
+		COLS = malloc(sizeof(*COLS) * (width));
+		if (COLS == NULL)
+		{ /* Free earlier allocations if operation fails */
+			for (j = 0; j < i; j++)
+				free(ROWS[j]);
+			free(ROWS);
 			return (NULL);
-		for (j = 0; j < width; j++)
-			D2i[j] = 0;
-		D2[i] = D2i;
+		}
+		for (j = 0; j < width; j++) /* make a row */
+			COLS[j] = 0;
+		ROWS[i] = COLS; /* Add the row to the grid */
 	}
-	return (D2);
+	return (ROWS);
 }
