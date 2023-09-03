@@ -4,6 +4,8 @@
 
 /**
  * main - check the code for ALX School students.
+ * @ac: argc
+ * @av: argv
  *
  * Return: Always 0.
  */

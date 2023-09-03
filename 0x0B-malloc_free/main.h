@@ -1,3 +1,5 @@
+#ifndef MAIN_H
+#define MAIN_H 1
 int _putchar(char c);
 char *create_array(unsigned int size, char c);
 char *_strdup(char *str);
@@ -11,3 +13,4 @@ void fillword(char *word, char *start, char *end);
 int isspace_(char *ch);
 int count_words(char *str);
 #define MAX_SPACES 7
+#endif
