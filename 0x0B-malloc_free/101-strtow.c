@@ -4,71 +4,36 @@
 
 /**
  * strtow - splits  a string into words
- * @str: string input
+ * @s: string input
  *
- * Return: pointer to final string
+ * Return: pointer to an array of words
+ * terminated by NULL pointer
  */
-char **strtow(char *str)
+char **strtow(char *s)
 {
-	char *start = str, *end, *word, **words, **words_;
-	int words_count = count_words(str); /* Plus 1 for null char */
+	int i, j, tot_wrds = 0;
+	char *ptr, *p, *word, **words;
 
-	if (str == NULL || *str == '\0' || words_count == 0)
-		return (NULL);
-	/* printf("WORD COUNT: %d\n", words_count); */
-
-	words = malloc(sizeof(**words) * (words_count + 1));
-	words_ = words;
-
-	if (words == NULL)
-		return (NULL);
-
-	while (*start != '\0')
+	words = malloc(sizeof(char *) * (word_count(s) + 1));
+	if (s == NULL || *s == '\0' || words == NULL)
+		return (0);
+	for (ptr = s; *ptr != '\0';)
 	{
-		end = start;
-		while (!isspace_(end))
-		{
-			++end;
-		}
-		if (end > start)
-		{
-			word = malloc(sizeof(*word) * (end - start));
-			if (word == NULL)
-				return (NULL);
-			fillword(word, start, end);
-			*words = word;
-			++words;
-			start = end;
-		}
-		else
-		{
-			++start;
-		}
-	}
-	return (words_);
-}
+		while (*ptr != '\0' && isspace_(*ptr))
+			ptr++; /* Skip spaces */
 
-/**
- * fillword - fill a word memory slot with chars within a given boundary
- * @word: word meomry slot
- * @start: start word boudary in memory
- * @end: end word boudary in memory
- *
- * Return: void
- */
-void fillword(char *word, char *start, char *end)
-{
-	int i;
-
-	if (word == NULL || start == NULL || end == NULL)
-	{
-		return;
+		if (*ptr == '\0') /* If we have reached the end, break */
+			continue;
+		p = ptr, i = 0;
+		while (*ptr != '\0' && !isspace_(*ptr))
+			ptr++, i++;
+		word = malloc(sizeof(char) * (i));
+		for (j = 0; j < i; j++, p++)
+			word[j] = *p;
+		word[j] = '\0', words[tot_wrds++] = word;
 	}
-	for (i = 0; i <= end - start; i++)
-	{
-		word[i] = *(start + i);
-	}
-	word[i] = '\0';
+	words[tot_wrds] = NULL;
+	return (words);
 }
 
 /**
@@ -77,44 +42,43 @@ void fillword(char *word, char *start, char *end)
  *
  * Return: 1 if true and 0 if false
  */
-int isspace_(char *character)
+int isspace_(char character)
 {
 	int i;
 	char sp_chars[MAX_SPACES] = {'\n', ' ', '\t', '\f', '\r', '\v', '\0'};
 
-	if (character == NULL)
-		return (0);
-
 	for (i = 0; i < 4; i++)
 	{
-		if (sp_chars[i] == *character)
+		if (sp_chars[i] == character)
 			return (1);
 	}
 	return (0);
 }
 
 /**
- * count_words - counts number of distinct spaces in a string
- * @str: input string
+ * word_count - return the number of words in a string
+ * separated by single space
+ * @str: string input
  *
- * Return: integer number of distinct spaces
+ * Return: integer word count
  */
-int count_words(char *str)
+int word_count(char *s)
 {
-	int count = 0, prev_space = 1;
+	int count = 0;
+	char *ptr;
 
-	while (*str != '\0')
+	if (s == NULL || *s == '\0')
+		return (0);
+	for (ptr = s; *ptr != '\0';)
 	{
-		if (isspace_(str) && prev_space == 0)
-		{
-			prev_space = 1;
-		}
-		else if (prev_space == 1 && isspace_(str) == 0)
-		{
-			prev_space = 0;
-			++count;
-		}
-		++str;
+		while (*ptr != '\0' && isspace_(*ptr))
+			ptr++; /* Skip spaces */
+
+		if (*ptr == '\0') /* If we have reached the end, break */
+			continue;
+		count++; /* word char found, lets move past them */
+		while (*ptr != '\0' && !isspace_(*ptr))
+			ptr++;
 	}
 	return (count);
 }

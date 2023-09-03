@@ -9,8 +9,8 @@ void free_grid(int **grid, int height);
 char *argstostr(int argc, char **argv);
 char **strtow(char *str);
 int count(char *str);
-void fillword(char *word, char *start, char *end);
-int isspace_(char *ch);
-int count_words(char *str);
+int isspace_(char ch);
 #define MAX_SPACES 7
+int word_count(char *s);
+
 #endif
