@@ -14,7 +14,7 @@ char **strtow(char *s)
 	int i, j, tot_wrds = 0, word_cnt = word_count(s);
 	char *ptr, *p, *word, **words;
 
-	words = malloc(sizeof(char *) * (word_cnt));
+	words = malloc(sizeof(char *) * (word_cnt + 1));
 	if (s == NULL || *s == '\0' || words == NULL || word_cnt == 0)
 		return (NULL);
 	for (ptr = s; *ptr != '\0';)
@@ -22,12 +22,18 @@ char **strtow(char *s)
 		while (*ptr != '\0' && isspace_(*ptr))
 			ptr++; /* Skip spaces */
 
-		if (*ptr == '\0') /* If we have reached the end, break */
-			continue;
-		p = ptr, i = 0;
-		while (*ptr != '\0' && !isspace_(*ptr))
-			ptr++, i++;
-		word = malloc(sizeof(char) * (i));
+		if (*ptr == '\0') /* If we have reached the end */
+			break;
+		for (p = ptr, i = 0; *ptr != '\0' && !isspace_(*ptr); i++)
+			ptr++; /* Means that ptr may advance more than i */
+		word = malloc(sizeof(char) * (i + 1));
+		if (word == NULL)
+		{
+			for (j = 0; j < tot_wrds; j++)
+				free(words[j]);
+			free(words);
+			return (NULL);
+		}
 		for (j = 0; j < i; j++, p++)
 			word[j] = *p;
 		word[j] = '\0', words[tot_wrds++] = word;
