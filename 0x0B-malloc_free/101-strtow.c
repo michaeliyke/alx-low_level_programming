@@ -11,12 +11,12 @@
  */
 char **strtow(char *s)
 {
-	int i, j, tot_wrds = 0;
+	int i, j, tot_wrds = 0, word_cnt = word_count(s);
 	char *ptr, *p, *word, **words;
 
-	words = malloc(sizeof(char *) * (word_count(s) + 1));
-	if (s == NULL || *s == '\0' || words == NULL)
-		return (0);
+	words = malloc(sizeof(char *) * (word_cnt));
+	if (s == NULL || *s == '\0' || words == NULL || word_cnt == 0)
+		return (NULL);
 	for (ptr = s; *ptr != '\0';)
 	{
 		while (*ptr != '\0' && isspace_(*ptr))
@@ -58,7 +58,7 @@ int isspace_(char character)
 /**
  * word_count - return the number of words in a string
  * separated by single space
- * @str: string input
+ * @s: string input
  *
  * Return: integer word count
  */
