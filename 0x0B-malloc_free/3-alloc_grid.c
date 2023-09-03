@@ -10,19 +10,19 @@
 int **alloc_grid(int width, int height)
 {
 	int **ROWS = NULL, /* The top-to-bottom hieght of the grid */
-	    *COLS = NULL,  /* The left-to-right width of the grid */
 	    i, j;
 
 	if (width <= 0 || height <= 0)
-		return (ROWS);
+		return (NULL);
 
-	ROWS = malloc(sizeof(**ROWS) * (height));
+	ROWS = malloc(sizeof(int *) * (height));
 	if (ROWS == NULL)
 		return (NULL);
 	for (i = 0; i < height; i++)
 	{
-		COLS = malloc(sizeof(*COLS) * (width));
-		if (COLS == NULL)
+		/* Add a new row to the grid */
+		ROWS[i] = malloc(sizeof(int) * (width));
+		if (ROWS[i] == NULL)
 		{ /* Free earlier allocations if operation fails */
 			for (j = 0; j < i; j++)
 				free(ROWS[j]);
@@ -30,8 +30,7 @@ int **alloc_grid(int width, int height)
 			return (NULL);
 		}
 		for (j = 0; j < width; j++) /* make a row */
-			COLS[j] = 0;
-		ROWS[i] = COLS; /* Add the row to the grid */
+			ROWS[i][j] = 0;
 	}
 	return (ROWS);
 }
