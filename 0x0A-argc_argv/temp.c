@@ -27,7 +27,7 @@ int min__coins(int coins[], int amount, int num_coins)
 }
 
 /**
- * min_of_coins - returns the minimum number of coins to make change
+ * min_of__coins - returns the minimum number of coins to make change
  * @count: number of coins
  * @values: coin values
  * @total_amount: the amount to make change for
