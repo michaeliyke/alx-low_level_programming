@@ -10,7 +10,7 @@
 int main(int argc, char *argv[])
 {
 	int num = 0, i, ret;
-	int coins[] = {1, 2, 5, 10, 25};
+	int coins[] = {25, 10, 5, 2, 1};
 	int num_of_coins = sizeof(coins) / sizeof(int);
 
 	(void)argc;
@@ -36,7 +36,8 @@ int main(int argc, char *argv[])
 		printf("0\n");
 		return (-1);
 	}
-	ret = min_of_coins(num, coins, num_of_coins);
+	/* ret = min_of_coins(num, coins, num_of_coins); */
+	ret = min_coins_grdy(num, coins, num_of_coins);
 	printf("%d\n", ret == INT_MAX ? 0 : ret);
 	return (0);
 }
@@ -125,4 +126,42 @@ int min_coins(int amount, int coins[], int total_coins)
 		}
 	}
 	return (table[amount]);
+}
+
+/**
+ * min_coins_grdy - gets the minimum number of coins change for an amount
+ * @amount: the amount to make change for
+ * @coins: available coin denominations with infinite supply
+ * @num_of_coins: n u,ber of available coin denominations
+ *
+ * Return: the minimum number of coins to make change for amount
+ * This implementation uses the greedy approach because it starts from
+ * the biggest coin values first. It will fail for certain combinations
+ * E.g coins {1,5,6,9}, amount = 11
+ * It will return 3 but the answer is 2
+ * But it is not limited by space like the dynamic programming approach
+ * which uses memoization.
+ */
+int min_coins_grdy(int amount, int coins[], int num_of_coins)
+{
+	int i, rest, total = 0;
+	int *values = malloc(sizeof(int) * (num_of_coins));
+
+	if (values == NULL)
+		return (0);
+	/**
+	 * coins must be in ascending order
+	 * otherwise the implementtation will fail
+	 */
+	for (i = 0, rest = amount; i < num_of_coins; i++)
+	{
+		values[i] = rest / coins[i]; /* store value against addition */
+		rest = rest - (values[i] * coins[i]);
+	}
+	while (--i >= 0)
+	{
+		total += values[i];
+	}
+
+	return (total);
 }

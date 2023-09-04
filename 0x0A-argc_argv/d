@@ -6,4 +6,5 @@
 clear
 
 compile 100-change.c -o change && change $*
+# compile d.c -o change && change $*
 
