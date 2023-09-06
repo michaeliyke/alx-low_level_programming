@@ -17,18 +17,20 @@ int (*get_op_func(char *s))(int, int)
 	    {"*", op_mul},
 	    {"/", op_div},
 	    {"%", op_mod},
-	    {NULL, NULL}};
-	int i = 0;
-	char *op;
+	    {NULL, NULL},
+	};
+	op_t *op = ops;
 
-	while (ops[i].op != NULL)
+	while (op->op != NULL)
 	{
-		op = ops[i].op;
-		if (*op == *s || (strlen(s) == 3 && *(s + 1) == *op))
-		{
-			return (ops[i].f);
-		}
-		i++;
+		/**
+		 * check if s is a single operator char eg +
+		 * Or if s is an operator char in quotes eg "+"
+		 */
+		if (strcmp(op->op, s) == 0 ||
+		    (strlen(s) == 3 && *(s + 1) == *(op->op)))
+			return (op->f);
+		op++;
 	}
 	return (NULL);
 }
