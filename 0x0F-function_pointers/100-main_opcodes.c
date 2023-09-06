@@ -45,7 +45,11 @@ void print_opcode(unsigned char *buff, int x)
 	int i;
 
 	for (i = 0; i < x; i++)
-		/* printf("%02hhx ", buff[i]); */
-		printf("%.2hhx ", buff[i]);
+	/* printf("%02hhx ", buff[i]); */
+	{
+		if (i != 0)
+			printf(" ");
+		printf("%.2hhx", buff[i]);
+	}
 	printf("\n");
 }
