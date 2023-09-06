@@ -26,9 +26,9 @@ int (*get_op_func(char *s))(int, int)
 		/**
 		 * check if s is a single operator char eg +
 		 * Or if s is an operator char in quotes eg "+"
+		 * Dropped: || (strlen(s) == 3 && *(s + 1) == *(op->op))
 		 */
-		if (strcmp(op->op, s) == 0 ||
-		    (strlen(s) == 3 && *(s + 1) == *(op->op)))
+		if (strcmp(op->op, s) == 0)
 			return (op->f);
 		op++;
 	}
