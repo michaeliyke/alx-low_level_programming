@@ -5,4 +5,7 @@
 
 clear
 
-compile 3-*.c -o calc && calc $*
+# compile 3-*.c -o calc && calc $*
+# gcc c.c -o opcodes && opcodes $*
+
+gcc 100-main_opcodes.c -o opcodes && opcodes $*
