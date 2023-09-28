@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * set_bit - sets the nth bit of an integer to 1
+ * clear_bit - sets the nth bit of an integer to 1
  * @n: pointer to unsigned long interger input
  * @index: index is the index, starting from 0 of the bit you want to set
  *
