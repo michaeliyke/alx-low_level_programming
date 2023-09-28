@@ -13,7 +13,7 @@
  * and 111 respectively
  * To convert 101 to 111, or 111 to 101, only the middle bit need be flipped
  * Similarly for 5 and 9
- * :-   0101
+ * -:   0101
  * and 1001 respectivley
  * To convert 0101 to 1001 or from 1001 to 0101, the fist and second bits
  * need to be flipped
