@@ -28,9 +28,16 @@
 int get_bit(unsigned long int n, unsigned int index)
 {
 	unsigned int mask;
+	/**
+	 * long int is 4 bytes in 32 bits and 8 bytes in 64
+	 * Since a byte is 8 bits
+	 * the maths below: 4*8 = 32, 8*8 = 64
+	 * This helps us know which arch
+	 */
+	unsigned int bit_arch = (sizeof(unsigned long int) * 8);
 
-	if (index > 64)
-		return (0);
+	if (index > bit_arch)
+		return (-1);
 
 	mask = (1 << (index));
 	return ((n & mask) == 0 ? 0 : 1);
