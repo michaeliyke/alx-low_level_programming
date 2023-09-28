@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * clear_bit - sets the nth bit of an integer to 1
- * @n: pointer to unsigned long interger input
- * @index: index is the index, starting from 0 of the bit you want to set
+ * clear_bit - sets the value of a bit to 0 at a given index
+ * @n: input integer
+ * @index: is the index, starting from 0 of the bit you want to set
  *
- * Return: 1 if success and -1 if fails
+ * Return: 1 if it worked, or -1 if an error occurred
  */
 int clear_bit(unsigned long int *n, unsigned int index)
 {
@@ -16,10 +16,13 @@ int clear_bit(unsigned long int *n, unsigned int index)
 	 * This helps us know which arch
 	 */
 	unsigned int bit_arch = (sizeof(unsigned long int) * 8);
+	unsigned long int mask;
 
 	if (index > bit_arch)
 		return (-1);
-	*n &= (1 << index);
+	/* mask has all bits set to 1 except bit at index */
+	mask = ~(1 << index);
+	*n &= mask;
 
 	return (1);
 }
