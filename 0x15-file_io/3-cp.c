@@ -10,7 +10,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int from, to, max_rd = 1024 + 1, num_rd;
+	int from, to, max_rd = 1024, num_rd;
 	char *buff;
 
 	if (argc != 3)
