@@ -19,17 +19,17 @@ int create_file(const char *filename, char *contents)
 	int fd, bytes_wr, bytes_rd = _strlen(contents);
 
 	if (filename == NULL)
-		return (0);
-	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0600);
+		return (-1);
+	fd = open(filename, O_WRONLY | O_CREAT | O_EXCL | O_TRUNC, 0600);
 	if (fd == -1 || contents == NULL) /* file cannot be opened */
 	{
 		close(fd);
-		return (fd == -1 ? 0 : 1);
+		return (fd == -1 ? -1 : 1);
 	}
 
 	bytes_wr = write(fd, contents, bytes_rd);
 	if (bytes_rd != bytes_wr) /* some of the bytes or non were written */
-		return (0);
+		return (-1);
 	close(fd);
 	return (bytes_wr);
 }
