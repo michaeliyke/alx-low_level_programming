@@ -36,7 +36,7 @@ int create_file(const char *filename, char *contents)
 	if (bytes_wr == -1) /* some of the bytes or non were written */
 		return (-1);
 	close(fd);
-	return (bytes_wr);
+	return (1);
 }
 
 /**
