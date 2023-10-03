@@ -14,13 +14,13 @@ int main(int argc, char *argv[])
 	char *buff;
 
 	if (argc != 3)
-		dprintf(2, W_USAGE), exit(97);
+		dprintf(STDERR_FILENO, W_USAGE), exit(97);
 	from = open(argv[1], O_RDONLY | O_EXCL);
 	if (from == -1)
-		dprintf(2, E_RD, argv[1]), exit(98);
+		dprintf(STDERR_FILENO, E_RD, argv[1]), exit(98);
 	to = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
 	if (to == -1)
-		dprintf(2, E_WR, argv[2]), closefd(from), exit(99);
+		dprintf(STDERR_FILENO, E_WR, argv[2]), closefd(from), exit(99);
 	buff = malloc(sizeof(char) * max_rd);
 	while ((num_rd = read(from, buff, max_rd)) != 0)
 	{
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 		if (write(to, buff, num_rd) == -1)
 		{
 			closefd(from), closefd(to);
-			dprintf(2, E_WR, argv[2]), exit(99);
+			dprintf(STDERR_FILENO, E_WR, argv[2]), exit(99);
 		}
 		free(buff), buff = malloc(sizeof(char) * max_rd);
 	}
@@ -49,7 +49,7 @@ void closefd(int fd)
 	if (close(fd) == -1)
 	{
 
-		dprintf(2, E_CLOSE, fd);
+		dprintf(STDERR_FILENO, E_CLOSE, fd);
 		exit(100);
 	}
 }
