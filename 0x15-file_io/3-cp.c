@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	to = open(argv[2], O_EXCL | O_CREAT | O_TRUNC | O_WRONLY, 0664);
+	to = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
 	if (to == -1)
 	{
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);
