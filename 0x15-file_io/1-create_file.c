@@ -28,7 +28,7 @@ int create_file(const char *filename, char *contents)
 	}
 
 	bytes_wr = write(fd, contents, bytes_rd);
-	if (bytes_rd != bytes_wr) /* some of the bytes or non were written */
+	if (bytes_rd == -1) /* some of the bytes or non were written */
 		return (-1);
 	close(fd);
 	return (bytes_wr);
