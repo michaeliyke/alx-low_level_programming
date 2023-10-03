@@ -26,10 +26,13 @@ int main(int argc, char *argv[])
 	{
 		buff[num_rd] = '\0';
 		if (num_rd == -1)
-			break;
+		{
+			dprintf(STDERR_FILENO, E_RD, argv[1]);
+			closefd(from), closefd(to), free(buff), exit(98);
+		}
 		if (write(to, buff, num_rd) == -1)
 		{
-			closefd(from), closefd(to);
+			closefd(from), closefd(to), free(buff);
 			dprintf(STDERR_FILENO, E_WR, argv[2]), exit(99);
 		}
 		free(buff), buff = malloc(sizeof(char) * max_rd);
