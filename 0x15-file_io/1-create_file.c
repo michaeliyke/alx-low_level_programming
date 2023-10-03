@@ -20,18 +20,23 @@ int create_file(const char *filename, char *contents)
 
 	if (filename == NULL)
 		return (-1);
-	fd = open(filename, O_WRONLY | O_CREAT | O_EXCL | O_TRUNC, 0600);
-	if (fd == -1 || contents == NULL) /* file cannot be opened */
+	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0600);
+	if (fd == -1) /* file cannot be opened */
 	{
 		close(fd);
-		return (fd == -1 ? -1 : 1);
+		return (-1);
+	}
+	if (contents == NULL)
+	{
+		close(fd);
+		return (1);
 	}
 
 	bytes_wr = write(fd, contents, bytes_rd);
-	if (bytes_rd == -1) /* some of the bytes or non were written */
+	if (bytes_wr == -1) /* some of the bytes or non were written */
 		return (-1);
 	close(fd);
-	return (1);
+	return (bytes_wr);
 }
 
 /**
