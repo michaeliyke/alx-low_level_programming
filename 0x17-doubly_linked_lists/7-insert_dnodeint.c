@@ -25,17 +25,13 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int index, int n)
 	node->n = n;
 	node->prev = NULL;
 	node->next = NULL;
-	/* if (*h == NULL && index == 0)
-	{
-		*h = node;
-		return (node);
-	}
- */
-	for (i = 0, tmp = *h; tmp && tmp->next; tmp = tmp->next, i++)
-		if (index == i)
+
+	tmp = *h;
+	for (i = 0; tmp && tmp->next; tmp = tmp->next, i++)
+		if (i + 1 == index)
 			break;
 
-	if (i == index) /* insert here */
+	if (i + 1 == index) /* insert here */
 	{
 		node->next = tmp;
 		node->prev = tmp->prev;
