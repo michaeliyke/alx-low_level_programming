@@ -43,11 +43,11 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int index, int n)
 		tmp->prev = node;
 		return (node);
 	}
-	else if (i + 1 == index && tmp->next == NULL)
-	{ /* Insert at the very end */
+	/* else if (i + 1 == index && tmp->next == NULL)
+	{
 		tmp->next = node;
 		node->prev = tmp;
 		return (node);
-	}
+	} */
 	return (NULL);
 }
