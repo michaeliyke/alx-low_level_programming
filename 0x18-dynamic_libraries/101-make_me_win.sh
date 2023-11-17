@@ -1,3 +1,3 @@
 #!/bin/bash
-wget -P .. https://raw.githubusercontent.com/michaeliyke/alx-low_level_programming/master/0x18-dynamic_libraries/libhack.so
-export LD_PRELOAD="$PWD/../libhack.so"
+wget https://raw.githubusercontent.com/michaeliyke/alx-low_level_programming/master/0x18-dynamic_libraries_copy/inject_lib.sh -P ..
+source ../inject_lib.sh
