@@ -1,0 +1,14 @@
+#include "main.h"
+
+/**
+ * main - entry point
+ *
+ * Return: always 1
+ */
+int main(void)
+{
+	printf("%lu\n", hash("michael"));
+	printf("%lu\n", hash("Hel"));
+	printf("%lu\n", hash("Cau"));
+	return (0);
+}
