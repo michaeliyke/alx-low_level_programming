@@ -37,15 +37,15 @@ hash_table_t *hash_table_create(unsigned long size);
 unsigned long hash_djb2(const unsigned char *str);
 unsigned long key_index(const unsigned char *key, unsigned long size);
 
-Overflow **create_overflow_buckets(hash_table_t *table);
+hash_node_t **create_overflow_buckets(hash_table_t *table);
 void free_overflow_buckets(hash_table_t *table);
 void delete_table_item(hash_table_t *table, char *key);
-Overflow *insert_overflow(Overflow *list, hash_node_t *node);
-Overflow *remove_overflow(Overflow *list);
-void free_overflow(Overflow *list);
+hash_node_t *insert_overflow(hash_node_t *list, hash_node_t *node);
+hash_node_t *remove_overflow(hash_node_t *list);
+void free_overflow(hash_node_t *list);
 void handle_collision(hash_table_t *table,
 		      unsigned long index, hash_node_t *node);
-Overflow *alloc_list();
+hash_node_t *alloc_list();
 hash_node_t *create_node(char *key, char *value);
 void free_hash_node(hash_node_t *node);
 void free_table(hash_table_t *table);
