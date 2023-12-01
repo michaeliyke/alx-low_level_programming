@@ -5,7 +5,8 @@
  * @str: string used to generate hash values
  *
  * Return: hash value
- * Attribution: https://gist.github.com/papamuziko/7bb52dfbb859fdffc4bd0f95b76f71e8
+ * Attribution:
+ * https://gist.github.com/papamuziko/7bb52dfbb859fdffc4bd0f95b76f71e8
  */
 unsigned long hash_djb2(const unsigned char *str)
 {

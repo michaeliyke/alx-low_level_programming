@@ -5,7 +5,7 @@
  * @key: the said key to compute index for
  * @size: size of the table
  *
- * Rteurn: the index of the key
+ * Return: the index of the key
  */
 unsigned long key_index(const unsigned char *key, unsigned long size)
 {
@@ -20,7 +20,7 @@ unsigned long key_index(const unsigned char *key, unsigned long size)
 
 /**
  * free_hash_node - freeing of a free_hashItem object
- * @item: pointer to a hashItem object
+ * @node: pointer to a hashItem object
  *
  * Return: void
  */

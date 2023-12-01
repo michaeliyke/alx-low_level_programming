@@ -20,31 +20,17 @@ typedef struct hash_node_s
 } hash_node_t;
 
 /**
- * struct overflow - to hold the overflow of hash table index collision
- * @item: pointer to a hash table item
- * @next: pointer to the next object
- */
-typedef struct Overflow
-{
-	hash_node_t *node;
-	struct Overflow *next;
-} Overflow;
-
-/**
  * struct hash_table_s - Hash table data structure
  *
  * @size: The size of the array
  * @array: An array of size @size
  * Each cell of this array is a pointer to the first node of a linked list,
  * because we want our hash_table_t to use a Chaining collision handling
- * @count: current number of items in the table
  */
 typedef struct hash_table_s
 {
 	unsigned long int size;
 	hash_node_t **array;
-	unsigned long int count;
-	Overflow **overflow_buckets;
 } hash_table_t;
 
 hash_table_t *hash_table_create(unsigned long size);

@@ -20,12 +20,6 @@ int hash_table_set(hash_table_t *table, const char *key, const char *value)
 
 	if (coll_item == NULL) /* the slot is free */
 	{
-		if (table->count == table->size) /* Table is full */
-		{
-			dprintf(2, "Insert Error: Hash table is full\n");
-			free_hash_node(node);
-			return (0);
-		}
 		table->array[index] = node; /* Direct insert */
 	}
 	else
@@ -41,8 +35,8 @@ int hash_table_set(hash_table_t *table, const char *key, const char *value)
 	return (1);
 }
 
-/***
- * create_item - returns a pointer to a new hashItem
+/**
+ * create_node - returns a pointer to a new hashItem
  * @key: the seed key
  * @value: the value
  *
@@ -78,63 +72,17 @@ hash_node_t *create_node(char *key, char *value)
 /**
  * handle_collision - a strategu for handling collision
  * @table: pointer to the hash table
- * @item: pointer to the item needed to be inserted
+ * @node: pointer to the item needed to be inserted
+ * @index: the index to insert node
  *
  * Return: void
  */
 void handle_collision(hash_table_t *table,
 		      unsigned long index, hash_node_t *node)
 {
-	Overflow *head;
+	hash_node_t *head;
 
-	head = table->overflow_buckets[index];
-	if (head == NULL) /* This is the first collision for this node */
-	{
-		head = alloc_list();
-		head->node = node;
-		table->overflow_buckets[index] = head;
-		return;
-	}
-	else /* a subsequent overflow */
-	{
-		table->overflow_buckets[index] = insert_overflow(head, node);
-		return;
-	}
-}
-
-/**
- * alloc_list - creates a new overflow list for collision handling
- *
- * Return: pointer to the new overflow list
- */
-Overflow *alloc_list()
-{
-	Overflow *list;
-
-	list = malloc(sizeof(Overflow));
-	if (list == NULL)
-		return (NULL);
-	return (list);
-}
-
-/**
- * insert_overflow - inserts into the overflow list
- * @list: pointer to the overflow list
- * @item: pointer to the item to be inserted
- *
- * Return: pointer to the head of the list
- */
-Overflow *insert_overflow(Overflow *list, hash_node_t *node)
-{
-	Overflow *item;
-
-	item = alloc_list();
-	if (item == NULL)
-		return (NULL);
-	item->node = node;
-	item->next = NULL;
-	if (!list)
-		return (item);
-	item->next = list; /* node is the new head */
-	return (item);
+	head = table->array[index];
+	node->next = head;
+	table->array[index] = node; /* node is the new head */
 }
