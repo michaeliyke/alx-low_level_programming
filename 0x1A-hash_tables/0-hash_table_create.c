@@ -1,18 +1,28 @@
-#define CAPACIT 50000 /* size of the Hash table */
+#include "hash_tables.h"
 
-/***
- * hash - for hashing the elements of the hash table
- * @str: the key to hash
+/**
+ * hash_table_create - creates the hash table
+ * @size: size of the table
  *
- * Return: long integer
+ * Return: pointer to a new hash table
  */
-unsigned long hash(char *str)
+hash_table_t *hash_table_create(unsigned long size)
 {
-	int j;
+	hash_table_t *table;
 	unsigned long i;
 
-	i = 0;
-	for (j = 0; str[j]; j++)
-		i += str[j];
-	return (i % CAPACIT);
+	table = malloc(sizeof(hash_table_t));
+	if (table == NULL)
+		return (NULL);
+	table->size = size;
+	table->array = calloc(table->size, sizeof(hash_node_t *));
+	if (table->array == NULL)
+	{
+		free(table);
+		return NULL;
+	}
+
+	for (i = 0; i < table->size; i++)
+		table->array[i] = NULL;
+	return (table);
 }

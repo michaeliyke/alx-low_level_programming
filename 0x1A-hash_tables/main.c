@@ -1,14 +1,18 @@
-#include "main.h"
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include "hash_tables.h"
 
 /**
- * main - entry point
+ * main - check the code for
  *
- * Return: always 1
+ * Return: Always EXIT_SUCCESS.
  */
 int main(void)
 {
-	printf("%lu\n", hash("michael"));
-	printf("%lu\n", hash("Hel"));
-	printf("%lu\n", hash("Cau"));
-	return (0);
+	hash_table_t *ht;
+
+	ht = hash_table_create(1024);
+	printf("%p\n", (void *)ht);
+	return (EXIT_SUCCESS);
 }
