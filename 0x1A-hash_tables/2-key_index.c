@@ -17,3 +17,16 @@ unsigned long key_index(const unsigned char *key, unsigned long size)
 
 	return (index);
 }
+
+/**
+ * free_hash_node - freeing of a free_hashItem object
+ * @item: pointer to a hashItem object
+ *
+ * Return: void
+ */
+void free_hash_node(hash_node_t *node)
+{
+	free(node->key);
+	free(node->value);
+	free(node);
+}

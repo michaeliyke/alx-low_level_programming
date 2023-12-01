@@ -8,7 +8,7 @@
  * struct hash_node_s - Node of a hash table
  *
  * @key: The key, string
- * The key is unique in the HashTable
+ * The key is unique in the hash_table_t
  * @value: The value corresponding to a key
  * @next: A pointer to the next node of the List
  */
@@ -20,20 +20,50 @@ typedef struct hash_node_s
 } hash_node_t;
 
 /**
+ * struct overflow - to hold the overflow of hash table index collision
+ * @item: pointer to a hash table item
+ * @next: pointer to the next object
+ */
+typedef struct Overflow
+{
+	hash_node_t *node;
+	struct Overflow *next;
+} Overflow;
+
+/**
  * struct hash_table_s - Hash table data structure
  *
  * @size: The size of the array
  * @array: An array of size @size
  * Each cell of this array is a pointer to the first node of a linked list,
- * because we want our HashTable to use a Chaining collision handling
+ * because we want our hash_table_t to use a Chaining collision handling
+ * @count: current number of items in the table
  */
 typedef struct hash_table_s
 {
 	unsigned long int size;
 	hash_node_t **array;
+	unsigned long int count;
+	Overflow **overflow_buckets;
 } hash_table_t;
 
 hash_table_t *hash_table_create(unsigned long size);
 unsigned long hash_djb2(const unsigned char *str);
 unsigned long key_index(const unsigned char *key, unsigned long size);
+
+Overflow **create_overflow_buckets(hash_table_t *table);
+void free_overflow_buckets(hash_table_t *table);
+void delete_table_item(hash_table_t *table, char *key);
+Overflow *insert_overflow(Overflow *list, hash_node_t *node);
+Overflow *remove_overflow(Overflow *list);
+void free_overflow(Overflow *list);
+void handle_collision(hash_table_t *table,
+		      unsigned long index, hash_node_t *node);
+Overflow *alloc_list();
+hash_node_t *create_node(char *key, char *value);
+void free_hash_node(hash_node_t *node);
+void free_table(hash_table_t *table);
+void insert_hash_item(hash_table_t *table, char *key, char *value);
+int hash_table_set(hash_table_t *table, const char *key, const char *value);
+
 #endif
