@@ -51,5 +51,6 @@ void free_hash_node(hash_node_t *node);
 void free_table(hash_table_t *table);
 void insert_hash_item(hash_table_t *table, char *key, char *value);
 int hash_table_set(hash_table_t *table, const char *key, const char *value);
+char *hash_table_get(const hash_table_t *ht, const char *key);
 
 #endif
