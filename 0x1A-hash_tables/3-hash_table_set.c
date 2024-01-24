@@ -26,7 +26,11 @@ int hash_table_set(hash_table_t *table, const char *key, const char *value)
 	{
 		/* Scenario 1: Update the value if th keys are same */
 		if (strcmp(coll_item->key, key) == 0)
+		{
+			free(table->array[index]->value);
+			table->array[index]->value = malloc(strlen(value) + 1);
 			strcpy(table->array[index]->value, value);
+		}
 		else
 			/* scenario 2: keys are different, handle collision */
 			handle_collision(table, index, node);
@@ -47,25 +51,14 @@ hash_node_t *create_node(char *key, char *value)
 	hash_node_t *node;
 
 	node = malloc(sizeof(hash_node_t));
-	if (node == NULL)
-		return (NULL);
-	node->key = malloc(sizeof(char) * strlen(key));
-	if (node->key == NULL)
-	{
-		free(node);
-		return (NULL);
-	}
-	node->value = malloc(sizeof(char) * strlen(value));
-	if (node->value == NULL)
-	{
-		free(node->key);
-		free(node);
-		return (NULL);
-	}
-
-	strcpy(node->key, key);
+	node->key = malloc(sizeof(char) * (strlen(key) + 1));
+	node->value = malloc(sizeof(char) * (strlen(value) + 1));
 	strcpy(node->value, value);
+	strcpy(node->key, key);
 
+	node->next = NULL;
+	free(key);
+	free(value);
 	return (node);
 }
 

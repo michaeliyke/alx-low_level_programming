@@ -46,9 +46,9 @@ void hash_table_print(const hash_table_t *table)
  */
 void print_chain(hash_node_t *head)
 {
-	printf("'%s': '%s'", head->key, head->value);
-	while ((head = head->next))
+	while (head)
 	{
 		printf("'%s': '%s', ", head->key, head->value);
+		head = head->next;
 	}
 }
