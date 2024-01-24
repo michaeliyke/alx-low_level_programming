@@ -1,0 +1,26 @@
+# Usage
+# make -f 0-Makefile
+
+# Define phony rules
+.PHONY = all clear clean cls
+
+# Below produces executable called school
+all: school
+
+school: school.o main.o
+	@gcc -o school school.o main.o
+
+school.o: school.c m.h
+	@gcc -Wall -Wextra -pedantic -Werror -std=gnu89 -g -c school.c
+
+main.o: main.c m.h
+	@gcc -Wall -Wextra -pedantic -Werror -std=gnu89 -g -c main.c
+
+clean:
+	@rm *.o school
+
+clear:
+	@rm *.o school
+
+cls:
+	@rm *.o school
