@@ -1,8 +1,6 @@
 # Usage
 # make -f 0-Makefile
-
 # Define phony rules
-.PHONY = all clear clean cls
 CC := gcc
 SRC := school.c main.c # Put your files here $(wildcard *.h)
 
