@@ -1,4 +1,3 @@
-.PHONY = all
 CC := gcc
 SRC := school.c main.c # Put your files here $(wildcard *.h)
 all: ${SRC}
