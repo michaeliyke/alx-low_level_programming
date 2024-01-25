@@ -2,7 +2,7 @@
 CC = gcc
 NAME = school
 SRC = main.c school.c
-OBJ = $(SRC:%.c=%.o) # make object files from the source files
+OBJ = $(SRC:.c=.o) # make object files from the source files
 
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
