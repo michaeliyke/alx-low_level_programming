@@ -4,11 +4,19 @@
 # Define phony rules
 .PHONY = all clear clean cls
 CC := gcc
-SRC := $(wildcard *.c)
+SRC := school.c
 
 # Below produces executable
-all: ${SRC}
-	@${CC} ${SRC} -Wall -Wextra -pedantic -Werror -std=gnu89 -g -o school
+all: school
+
+school: school.o main.o
+	@${CC} school.o main.o -o school
+
+school.o: ${SRC} m.h
+	@${CC} ${SRC} -Wall -Wextra -pedantic -Werror -std=gnu89 -g -c school.o
+
+main.o: main.c m.h
+	@${CC} main.c -Wall -Wextra -pedantic -Werror -std=gnu89 -g -c main.o
 
 clean:
 	@rm -rvf *.o school
