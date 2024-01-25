@@ -1,0 +1,22 @@
+.PHONY = clean all oclean fclean re
+CC = gcc
+NAME = school
+SRC = main.c school.c # $(wildcard *.c) - all the .c files
+OBJ = $(SRC:%.c=%.o) # corresponding object files names using the SRC files
+
+# The CFLAGS varible once set is utilized by gcc by defualt.
+# Even without explicite mention during compilation
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+all: $(OBJ) m.h
+	$(CC) $(OBJ) -o $(NAME)
+
+re: fclean all # Forces recompilation of all source files
+
+clean: # remove all vim and Emacs temporary files, along with the exe file
+	$(RM) -f *.swap *.swo *.swn *~ $(NAME)
+
+oclean: # remove all object files
+	$(RM) -f $(OBJ)
+
+fclean: clean oclean # Full combined cleanup
