@@ -7,12 +7,12 @@ RM = rm
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-re: oclean all # Forces recompilation of all source files
+re: fclean all # Forces recompilation of all source files
 
 clean: # remove all vim and Emacs temporary files, along with the exe file
 	$(RM) -f *.swap *.swo *.swn *~ $(NAME)
 
 oclean: # remove all object files
-	rm -f *.o
+	$(RM) -f $(OBJ)
 
 fclean: clean oclean # Full combined cleanup
