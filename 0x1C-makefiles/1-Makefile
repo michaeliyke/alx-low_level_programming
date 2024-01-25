@@ -7,8 +7,8 @@ CC := gcc
 SRC := school.c main.c # Put your files here $(wildcard *.h)
 
 # Below produces executable
-all: ${SRC} # @ sign below supresses the actual command from showing
-	@${CC} ${SRC} -o school
+all: ${SRC}
+	${CC} ${SRC} -o school
 
 clean:
 	@rm -rvf *.o school
