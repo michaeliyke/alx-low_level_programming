@@ -1,0 +1,19 @@
+CC = gcc
+NAME = school
+SRC = main.c school.c
+OBJ = $(SRC:%.c=%.o) # make object files from the source files
+RM = rm
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+all: $(OBJ)
+	$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
+
+re: fclean all # Forces recompilation of all source files
+
+clean: # remove all vim and Emacs temporary files, along with the exe file
+	$(RM) -f *.swap *.swo *.swn *~ $(NAME)
+
+oclean: # remove all object files
+	$(RM) -f $(OBJ)
+
+fclean: clean oclean # Full combined cleanup
