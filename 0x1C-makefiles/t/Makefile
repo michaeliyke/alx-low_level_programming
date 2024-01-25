@@ -49,3 +49,12 @@ all: ${BINS} # phony target all calls values in ${BINS} as individual targets.
 clean:
 	@echo "cleaning up..."
 	rm -rvf *.o ${BINS}
+
+
+
+# simple and direct method
+# CC = gcc
+# SRC = main.c school.c
+# all: $(SRC)
+	# $(CC) $(SRC) -o school
+#
