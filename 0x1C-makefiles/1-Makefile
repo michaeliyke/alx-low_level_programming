@@ -1,16 +1,5 @@
-# Usage
-# make -f 0-Makefile
-# Define phony rules
+.PHONY = all
 CC := gcc
 SRC := school.c main.c # Put your files here $(wildcard *.h)
-
-# Below produces executable
 all: ${SRC}
 	${CC} ${SRC} -o school
-
-clean:
-	@rm -rvf *.o school
-
-clear: clean # Alias
-
-cls: clean # Alias
