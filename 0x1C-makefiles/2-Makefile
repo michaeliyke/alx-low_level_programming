@@ -1,0 +1,16 @@
+.PHONY = all clear clean
+CC = gcc
+NAME = school
+SRC = main.c school.c
+OBJ = $(SRC:%.c=%.o) # make object files from the source files
+
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+%.o: %.c # Create each of the object files in SRC: $< - .c file, $@ - .o result
+	$(CC) -c $< -o $@
+
+clean:
+	@rm -vrf *o school
+
+clear: clean
