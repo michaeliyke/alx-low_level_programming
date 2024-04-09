@@ -1,6 +1,6 @@
 #include "search_algos.h"
 
-static void print_array(int arr[], size_t left, size_t right)
+void print_array(int arr[], size_t left, size_t right)
 {
 	size_t i;
 
@@ -26,7 +26,7 @@ static void print_array(int arr[], size_t left, size_t right)
  */
 int binary_search(int *array, size_t size, int value)
 {
-	size_t left = 0, right = size - 1, mid;
+	size_t left = 0, right = size - 1, mid, i;
 	int cv;
 
 	if (array == NULL)
@@ -34,7 +34,11 @@ int binary_search(int *array, size_t size, int value)
 	while (left <= right)
 	{
 		mid = (left + right) >> 1;
-		print_array(array, left, right);
+		printf("Searching in array: ");
+		for (i = left; i < right; i++)
+			printf("%d, ", array[i]);
+		printf("%d\n", array[i]);
+
 		cv = array[mid]; /* current value */
 		if (cv == value)
 			return (mid);
