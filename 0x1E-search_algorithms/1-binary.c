@@ -26,27 +26,30 @@ void print_array(int arr[], size_t left, size_t right)
  */
 int binary_search(int *array, size_t size, int value)
 {
-	size_t start = 0, end = size - 1, mid, i;
+	int s = (int)size;
+	int i, start = 0, end = (int)size, mid;
 
-	if (!array)
-		return (-1);
-
-	while (start <= end)
+	do
 	{
-		mid = (start + end) / 2;
-
 		printf("Searching in array: ");
 		for (i = start; i < end; i++)
-			printf("%d, ", array[i]);
-		printf("%d\n", array[i]);
-
-		if (array[mid] == value)
-			return (mid);
-
-		if (array[mid] < value)
-			start = mid + 1;
+		{
+			printf("%d", array[i]);
+			if (i != end - 1)
+				printf(", ");
+		}
+		printf("\n");
+		s /= 2;
+		mid = start + s;
+		if (value < array[mid])
+			end = end - s;
 		else
-			end = mid - 1;
+			start = mid;
+	} while (s >= 1);
+	for (i = start; i < end; i++)
+	{
+		if (value == array[i])
+			return (i);
 	}
 	return (-1);
 }
