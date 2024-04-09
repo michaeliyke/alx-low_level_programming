@@ -11,36 +11,30 @@
  */
 int jump_search(int *array, size_t size, int value)
 {
-	double m; /* The block size */
-	size_t left = 0, right;
+	size_t left = 0, right, i, m; /* The block size */
 	char temp[] = "Value found between indexes ";
 
 	if (array == NULL)
 		return (-1);
-	m = sqrt((double)size); /* don’t forget to compile with -lm */
-	for (right = m; left < size && right < size; left += m, right += m)
+	m = (size_t)sqrt((double)size); /* don’t forget to compile with -lm */
+	for (right = m + left; left < size; left += m, right += m)
 	{
-		if (right >= size) /* Esnure boundary is within the array */
-			right = size - 1;
-
-		/* Degrade to linear search if value is missing/within block */
-		printf("Value checked array[%lu] = [%d]\n", right, array[right]);
-		if (array[right] >= value)
+		printf("Value checked array[%lu] = [%d]\n", left, array[left]);
+		if (array[left] == value)
+			return (left);
+		if ((right < size && array[right] >= value) || right >= size)
 		{
-			for (; left <= right; left++)
-			{
-				printf("Value checked array[%lu] = [%d]\n",
-				       left, array[left]);
-				if (array[left] == value)
-				{
-					printf("%s[%lu] and [%lu]\n", temp, left, right);
-					return (left);
-				}
-			}
 			printf("%s[%lu] and [%lu]\n", temp, left, right);
-			return (-1);
+			for (i = left; i <= right && i < size; i++)
+			{
+				if (i >= size)
+					return (-1);
+				printf("Value checked array[%lu] = [%d]\n",
+				       i, array[i]);
+				if (array[i] == value)
+					return (i);
+			}
 		}
 	}
-	printf("%s[%lu] and [%lu]\n", temp, left, right);
 	return (-1);
 }
