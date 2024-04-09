@@ -1,19 +1,5 @@
 #include "search_algos.h"
-
-static void print_array(int arr[], size_t left, size_t right)
-{
-	size_t i;
-
-	printf("Searching in array: ");
-	for (i = left; i <= right; i++)
-	{
-		if (i == right)
-			printf("%d", arr[i]);
-		else
-			printf("%d, ", arr[i]);
-	}
-	printf("\n");
-}
+#include <math.h>
 
 /**
  * jump_search - searches for a value in a sorted array of integers
@@ -25,11 +11,36 @@ static void print_array(int arr[], size_t left, size_t right)
  */
 int jump_search(int *array, size_t size, int value)
 {
-	double jump;
+	double m; /* The block size */
+	size_t left = 0, right;
+	char temp[] = "Value found between indexes ";
 
 	if (array == NULL)
 		return (-1);
-	jump = sqrt((double)size); /* don’t forget to compile with -lm */
+	m = sqrt((double)size); /* don’t forget to compile with -lm */
+	for (right = m; left < size && right < size; left += m, right += m)
+	{
+		if (right >= size) /* Esnure boundary is within the array */
+			right = size - 1;
 
+		/* Degrade to linear search if value is missing/within block */
+		printf("Value checked array[%lu] = [%d]\n", right, array[right]);
+		if (array[right] >= value)
+		{
+			for (; left <= right; left++)
+			{
+				printf("Value checked array[%lu] = [%d]\n",
+				       left, array[left]);
+				if (array[left] == value)
+				{
+					printf("%s[%lu] and [%lu]\n", temp, left, right);
+					return (left);
+				}
+			}
+			printf("%s[%lu] and [%lu]\n", temp, left, right);
+			return (-1);
+		}
+	}
+	printf("%s[%lu] and [%lu]\n", temp, left, right);
 	return (-1);
 }
