@@ -1,5 +1,12 @@
 #include "search_algos.h"
-
+/**
+ * print_array - printing an array
+ * @arr: the array
+ * @left: lower
+ * @right: high
+ *
+ * Return: void
+ */
 void print_array(int arr[], size_t left, size_t right)
 {
 	size_t i;

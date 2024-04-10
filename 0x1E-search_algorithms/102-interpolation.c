@@ -12,6 +12,7 @@
 size_t getpos(int *a, int l, int h, int v)
 {
 	size_t pos = l + (((double)(h - l) / (a[h] - a[l])) * (v - a[l]));
+
 	return (pos);
 }
 
@@ -45,7 +46,6 @@ int interpolation_search(int *array, size_t size, int value)
 		if (value == cv)
 			return (pos);
 
-		/* printf("Value checked array[%d] = [%d]\n", pos, array[pos]); */
 		if (value < cv)
 		{
 			size = pos;
