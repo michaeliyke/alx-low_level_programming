@@ -27,25 +27,24 @@ void print_array(int *array, size_t size)
  */
 int advanced_binary(int *array, size_t size, int value)
 {
-	size_t left = 0, right = size - 1, mid, i;
+	int result, mid;
 
-	if (array == NULL)
+	if (array == NULL || size <= 0)
 		return (-1);
-	while (left <= right)
+	print_array(array, size);
+	mid = size >> 1;
+	if (value == array[mid])
 	{
-		mid = (left + right) >> 1;
-		printf("Searching in array: ");
-		for (i = left; i < right; i++)
-			printf("%d, ", array[i]);
-		printf("%d\n", array[i]);
-
-		if (array[mid] == value)
-			if (mid == 0 || array[mid - 1] != value)
-				return (mid);
-		if (array[mid] < value)
-			left = mid + 1;
-		else
-			right = mid - 1;
+		if (mid == 0 || array[mid - 1] != value)
+			return (mid);
 	}
-	return (-1);
+
+	if (value > array[mid]) /* Adjust to handle sub-array */
+	{
+		mid++;
+		result = advanced_binary(array + mid, size - mid, value);
+		return (result == -1 ? -1 : mid + result);
+	}
+	/* print_array(array, size); */
+	return (advanced_binary(array, mid, value));
 }
