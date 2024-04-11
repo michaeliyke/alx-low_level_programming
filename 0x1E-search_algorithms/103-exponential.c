@@ -1,7 +1,13 @@
 #include "search_algos.h"
 
 /**
- * BS = Binary Search algorithm
+ * BS - Binary Search algorithm
+ * @array: pointer to the first element of the array to search in
+ * @left: the left index
+ * @right: the right index
+ * @value: value to search for
+ *
+ * Return: the first index where value is located, or -1 if value is absent
  */
 static int BS(int array[], int left, int right, int value)
 {
