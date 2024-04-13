@@ -19,7 +19,7 @@ void move(listint_t **node, size_t m)
 	if (node == NULL || *node == NULL)
 		return;
 
-	while (m-- && *node)
+	while (m-- && (*node)->next)
 		*node = (*node)->next;
 }
 
@@ -44,9 +44,9 @@ void move(listint_t **node, size_t m)
  */
 listint_t *jump_list(listint_t *head, size_t size, int value)
 {
-	short found = 0;
 	listint_t *right, *left;
-	size_t m = (int)sqrt((double)size), i = 0;
+	/* size_t m = (int)sqrt((double)size), i = 0; */
+	size_t m = 4, i = 0;
 
 	if (head == NULL || size == 0)
 		return (NULL);
@@ -57,15 +57,13 @@ listint_t *jump_list(listint_t *head, size_t size, int value)
 
 	/* left = left->next; */
 	move(&right, m);
-	while (left && right && left->index < size)
+	while (left->index < size)
 	{
-		found = right == NULL || right->index >= size ||
-			right->n >= value;
-		/* if (!found) */
+
+		/* Right value is >= value, right index >= size or !right.nxt*/
 		printf("Value checked at index [%ld] = [%d]\n",
 		       right->index, right->n);
-		/* Right value is >= value, right index >= size or !right */
-		if (found)
+		if (right->next == NULL || right->n >= value)
 		{
 			printf("Value found between indexes [%ld] and [%ld]\n",
 			       left->index, right->index);
@@ -80,6 +78,7 @@ listint_t *jump_list(listint_t *head, size_t size, int value)
 			}
 			return (NULL); /* At this point, then value missing */
 		}
+
 		move(&left, m);
 		move(&right, m);
 	}
