@@ -13,10 +13,10 @@
  * left starts from 0 and increments by m
  * right starts from m and incrments by m
  * Before increment, value is checked thus:
- * 	if value is array[left] return index left
- * 	if value is <= array[right] OR right >= size:
- * 		loop from left to right, return the first found
- * 		OR return (-1)
+ * if value is array[left] return index left
+ * if value is <= array[right] OR right >= size:
+ * loop from left to right, return the first found
+ * OR return (-1)
  * Return (-1) when done and nothing was found
  */
 int jump_search(int *array, size_t size, int value)

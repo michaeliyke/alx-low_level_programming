@@ -18,10 +18,12 @@ void print_array(int *array, size_t size)
 }
 
 /**
- * binary_search_recursive - searches for a value in a sorted array of integers using
- * the Binary search algorithm. This optimizes to return the first occurence of value
+ * binary_search_recursive - searches for a value in a sorted array of integers
+ * using the Binary search algorithm. This optimizes to return the first
+ * occurence of value
  * @array: pointer to the first element of the array to search in
- * @size: number of elements in array
+ * @left: the left index
+ * @right: the right index
  * @value: value to search for
  *
  * Return: the first index where value is located, or -1 if value is absent
@@ -34,12 +36,13 @@ int binary_search_recursive(int array[], int left, int right, int value)
 	{
 		mid = left + (right - left) / 2;
 		if ((mid == 0 || value > array[mid - 1]) && array[mid] == value)
-			return mid;
+			return (mid);
 		if (array[mid] < value)
-			return binary_search_recursive(array, mid + 1, right, value);
-		return binary_search_recursive(array, left, mid - 1, value);
+			return (binary_search_recursive(array, mid + 1,
+							right, value));
+		return (binary_search_recursive(array, left, mid - 1, value));
 	}
-	return -1;
+	return (-1);
 }
 
 /**

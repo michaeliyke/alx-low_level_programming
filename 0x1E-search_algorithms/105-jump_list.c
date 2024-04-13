@@ -4,7 +4,7 @@
 /**
  * move - move through steps
  * @node: a node
- * @steps: number of steps
+ * @m: the block size
  *
  * Return: void
  * HERE
@@ -25,8 +25,8 @@ void move(listint_t **node, size_t m)
 
 /**
  * jump_list - searches for a value in a sorted head of integers using the
- *  Jump search algorithm.
- * @list: head to a lisnked list
+ * Jump search algorithm.
+ * @head: head to a lisnked list
  * @size: the size of the list
  * @value: the value to search for
  *
@@ -36,10 +36,10 @@ void move(listint_t **node, size_t m)
  * left starts from 0 and increments by m
  * right starts from m and incrments by m
  * Before increment, value is checked thus:
- * 	if value is array[left] return index left
- * 	if value is <= array[right] OR right >= size:
- * 		loop from left to right, return the first found
- * 		OR return (-1)
+ * if value is array[left] return index left
+ * if value is <= array[right] OR right >= size:
+ * loop from left to right, return the first found
+ * OR return (-1)
  * Return (-1) when done and nothing was found
  */
 listint_t *jump_list(listint_t *head, size_t size, int value)
